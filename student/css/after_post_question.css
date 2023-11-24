@@ -1,0 +1,371 @@
+.header{
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: var(--box-shadow);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.first-section{
+	width: 100%;
+	max-width: 300px;
+	margin-left: 10px;
+}
+.EQA_button{
+	font-family: Arial;
+	font-size: 27px;
+	height: 42px;
+	width: 150px;
+	margin-left: 340px;
+	margin-top: 13px;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	background-color: white;
+}
+.EQA_button:hover{
+	opacity: 0.3;
+}
+.middle-section{
+	flex: 0.70;
+	margin-left: 150px;
+	margin-right: 30px;
+	display: flex;
+	align-items: center;
+}
+.search-bar{
+	font-size: 16px;
+	margin-top: 0px;
+	flex: 0.85;
+	height: 40px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(192,192,192);
+	border-radius: 2px;
+	padding-left: 40px;
+	box-shadow: inset 1px 2px 5px rgba(0,0,0,0.05);
+}
+.search-button{
+	height: 43px;
+	width: 50px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(192,192,192);
+	margin-right: 40px;
+	margin-left: -1.5px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.search-button:hover{
+	opacity: 0.3;
+}
+.search_icon{
+	margin-left: 3px;
+	margin-top: -0px;
+}
+.sidebar{
+	background-color: #FAF0E6;
+	color: white;
+	position: fixed;
+	bottom: 0;
+	left: 7px;
+	top: 0px;
+	width: 200px;
+	box-shadow: var(--box-shadow);
+
+}
+.study-sage{
+	font-family: Arial;
+	padding: 20px;
+	padding-left: 40px;
+	padding-top: 40px;
+	font-weight: bold; 
+	font-size: 20px;
+	background-color: #FAF0E6;
+	color: black;
+}
+.Home{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 100px;
+	left: 45px;
+	bottom: 570px;
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	background-color: #FAF0E6;
+	color: black;
+}
+.Home:hover{
+	opacity: 0.3;
+}
+.Study-tools{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 100px;
+	left: 45px;
+	bottom: 490px;
+	position: absolute;
+	background-color: #FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.Study-tools:hover{
+	opacity: 0.3;
+}
+.Post-a-question{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 404px;
+	position: absolute;
+	background-color: #FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.Post-a-question:hover{
+	opacity: 0.3;
+}
+.AI-Expert{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 360px;
+	position: absolute;
+	background-color: #FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.AI-Expert:hover{
+	opacity: 0.3;
+}
+.My-Courses{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 270px;
+	position: absolute;
+	background-color: #FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.My-Courses:hover{
+	opacity: 0.3;
+}
+.My-books{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 170px;
+	position: absolute;
+	background-color: #FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.My-books:hover{
+	opacity: 0.3;
+}
+.career{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 70px;
+	position: absolute;
+	background-color: #FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.career:hover{
+	opacity: 0.3;
+}
+.Life{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 30px;
+	position: absolute;
+	background-color: #FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.Life:hover{
+	opacity: 0.3;
+}
+.Q{
+	position: absolute;
+	top:150px;
+	left: 530px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 19px;
+}
+.Q_btn{
+	position: absolute;
+	height: 1000px;
+	top: 200px;
+	bottom: 10px;
+	left: 500px;
+	width: 500px;
+	background-color: white;
+	border-style: solid;
+	border-color: rgb(192,192,192);
+	text-align: justify;
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-bottom: 700px;
+	border-width: 1px;
+	
+}
+.std{
+	position: absolute;
+	font-family: Arial;
+	font-weight: bold;
+	bottom: 200px;
+	left: 532px;
+	color: #20b2aa;
+}
+.EA{
+	position: absolute;
+	bottom: 150px;
+	left: 530px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 19px;
+}
+.answer{
+	position: absolute;
+	font-family: Arial;
+	bottom: 120px;
+	left: 530px;
+	font-size: 13px;
+}
+.card{
+	background-color: #FFFAF0;
+	align-items: center;
+	bottom: 239px;
+	position: absolute;
+	padding-top: 20px;
+	left: 1040px;
+	height: 250px;
+	width: 340px;
+	border-radius: 10px;
+	
+}
+.Post-a-question-box{
+	position: absolute;
+	bottom:83px;
+	height: 75px;
+	width: 230px;
+	padding-left: 19px;
+	left: 50px;
+	border-radius: 5px;
+	border-width: 1.5px;
+}
+.post{
+	font-family: Arial;
+	position: absolute;
+	left: 50px;
+	top: 10px;
+	font-size: 20px;
+	color: black;
+}
+.sub{
+	font-family: Arial;
+	position: absolute;
+	top: 53px;
+	left: 50px;
+	color: black;
+	font-size: 13px;
+	
+}
+.continue-to-post-button{
+	position: absolute;
+	left: 100px;
+	top: 210px;
+	height: 30px;
+	width: 140px;
+	border-radius: 50px;
+	border:none;
+	cursor: pointer;
+	color: white;
+	background-color: black;
+}
+.continue-to-post-button:hover{
+	opacity: 0.3;
+}
+.sbs{
+	font-family: Arial;
+	position: absolute;
+	font-weight: bold;
+	top: 590px;
+	left: 530px;
+}
+.index {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: absolute;
+    top: 630px;
+    left: 510px;
+    display: flex;
+}
+
+section {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 14px;
+    font-family: Arial;
+    margin: 0;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+li {
+    margin: 5px 0;
+}
+.AI-Expert-button{
+	position: absolute;
+	left: 375px;
+	top: 200px;
+	height: 30px;
+	width: 100px;
+	border-radius: 50px;
+	border:none;
+	cursor: pointer;
+	color: white;
+	background-color: black;
+}
+.AI-Expert-button:hover{
+	opacity: 0.3;
+}
+

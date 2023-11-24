@@ -1,0 +1,250 @@
+.sidebar{
+	background-color: #FAF0E6;
+	position: fixed;
+	bottom: 0;
+	left: 7px;
+	top: 0px;
+	width: 200px;
+	box-shadow: var(--box-shadow);
+
+}
+.study-sage{
+	font-family: Arial;
+	padding: 20px;
+	padding-left: 40px;
+	padding-top: 40px;
+	font-weight: bold; 
+	font-size: 20px;
+}
+.Home{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 100px;
+	left: 45px;
+	bottom: 570px;
+	position: absolute;
+	background-color:#FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.Home:hover{
+	opacity: 0.3;
+}
+.Study-tools{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 100px;
+	left: 45px;
+	bottom: 490px;
+	position: absolute;
+	background-color:#FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.Study-tools:hover{
+	opacity: 0.3;
+}
+.Post-a-question{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 404px;
+	position: absolute;
+	background-color:#FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.Post-a-question:hover{
+	opacity: 0.3;
+}
+.AI-Expert{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 360px;
+	position: absolute;
+	background-color:#FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.AI-Expert:hover{
+	opacity: 0.3;
+}
+.My-Courses{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 270px;
+	position: absolute;
+	background-color:#FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.My-Courses:hover{
+	opacity: 0.3;
+}
+.My-books{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 170px;
+	position: absolute;
+	background-color:#FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.My-books:hover{
+	opacity: 0.3;
+}
+.career{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 70px;
+	position: absolute;
+	background-color:#FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.career:hover{
+	opacity: 0.3;
+}
+.Life{
+	font-family: Arial;
+	font-size: 17px;
+	height: 50px;
+	width: 150px;
+	left: 28px;
+	bottom: 30px;
+	position: absolute;
+	background-color:#FAF0E6;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+.Life:hover{
+	opacity: 0.3;
+}
+.Go_back_button{
+	margin-left: 500px;
+	border: none;
+	background-color: white;
+	font-size: 20px;
+	top: 45px;
+	position: absolute;
+}
+.AaE{
+	font-family: Arial;
+	font-size: 30px;
+	position: absolute;
+	left: 500px;
+	top: 120px;
+	font-weight: bold;
+}
+.sub{
+	font-family: Arial;
+	font-size: 14px;
+	position: absolute;
+	left: 500px;
+	top: 190px;
+	font-weight: lighter;
+}
+.sub_sub{
+	font-family: Arial;
+	font-size: 14px;
+	position: absolute;
+	left: 500px;
+	top: 230px;
+	font-weight: lighter;
+}
+.sub_sub_sub{
+	font-family: Arial;
+	font-size: 22px;
+	position: absolute;
+	left: 500px;
+	top: 310px;
+	font-weight: bold;
+}
+.sub_sub_sub_sub{
+	font-family: Arial;
+	font-size: 14px;
+	position: absolute;
+	left: 500px;
+	top:370px;
+	font-weight: lighter;
+}
+.text-editor {
+    max-width: 1200px;
+    margin: 20px auto;
+    left: 500px;
+    top: 420px;
+    position: absolute;
+    height: 250px;
+    width: 900px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editor {
+    padding: 10px;
+}
+
+.image-drop-zone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.continue-button{
+	position: absolute;
+	top: 710px;
+	left: 1250px;
+	height: 25px;
+	width: 100px;
+	border-radius: 50px;
+	border:none;
+}
+.step-2-of-2{
+	position: absolute;
+	top: 800px;
+	left: 505px;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: Arial;
+}
+.post-question-button{
+	height: 30px;
+	width: 150px;
+	position: absolute;
+	top: 900px;
+	left: 1200px;
+	border-radius: 50px;
+	border:none;
+}
