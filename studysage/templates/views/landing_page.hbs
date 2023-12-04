@@ -17,6 +17,12 @@
 	
 	</head>
 <body>
+	{{#if messages.success}}
+    <div class="alert alert-success">
+        <strong>{{ messages.success }}</strong>
+    </div>
+{{/if}}
+
 	{{!-- //nav from template/partials --}}
    {{>navbar}}
 
@@ -40,29 +46,24 @@
 	Submit Questions & get Solutions
 </button>
 
-<div class="card">	
- 		
- 		<input class="email_box" type="text" placeholder="Enter Your Email ID">
- 	
- 	    <input class="select_topic_box" type="text" name="topic" placeholder="Slect Topic">
- 	
- 	    <input class="copypaste_box" type="text" name="copypaste" placeholder="Copy and Paste Your Question Here...">
- 	
- 		<input class="how_soon_need_answer_box" type="text" name="answer" placeholder="How soon do you need an Answer?">
+<div class="card">
+  <form action="/k" method="POST" enctype="multipart/form-data">
+    <input class="email_box" type="email" name="email" placeholder="Enter Your Email ID" required>
 
- 		 <form action="upload.php" method="post" enctype="multipart/form-data">
-     
-     		<label for="file"></label>
-              <input class="attach_file" type="file" id="file" name="file">
-               
-        </form>
+    <input class="select_topic_box" type="text" name="topic" placeholder="Select Topic" required>
 
-        <button class="Get_Answer_button">
-	Get Answer
-</button>
-<p class="referall">got a referall code?</p>
+    <textarea class="copypaste_box" name="question" placeholder="Write Your Question Here..." required></textarea>
 
- 	</div>
+    <input class="how_soon_need_answer_box" type="number" name="req_time" placeholder="How soon do you need an Answer? (e.g., 30 min)">
+
+    <input class="attach_file" type="file" name="file">
+
+    <button class="Get_Answer_button" type="submit">Get Answer</button>
+  </form>
+
+  <p class="referall">Got a referral code?</p>
+</div>
+
  	</div>
 
  	<div class="second_paragraph">

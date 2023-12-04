@@ -31,8 +31,15 @@
 			margin-bottom: 20px;
 		}
     </style>
-       <button class="Sign_in_button">
-        Sign in
-    </button>
+      {{#if isAuthenticated}}
+    <a href="/logout"><button class="Sign_in_button">Logout</button></a>
+{{else}}
+    <a href="/login" id="signInButton"><button class="Sign_in_button">Sign in</button></a>
+{{/if}}
+
+
     </div>
  </div> 
+
+<script src="/studysage/src/controllers/login_script.js"></script>
+ 

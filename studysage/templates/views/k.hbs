@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>k.hbs</title>
+</head>
+<body>
+    <h1>Data:</h1>
+    {{#each landingpage_Q}}
+        {{#if this.email}}
+            <p>Email: {{this.email}}, Topic: {{this.topic}}, Time: {{this.req_time}}</p>
+            {{#if this.file}}
+                {{!-- <p>Content Type: {{this.file.contentType}}, Buffer Length: {{this.file.data.length}}</p> --}}
+                 <img src="data:{{this.file.contentType}};base64,{{this.file.data}}" alt="Uploaded Image">
+            {{/if}}
+        {{/if}}
+    {{/each}}
+</body>
+</html>
