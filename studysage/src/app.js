@@ -1,6 +1,6 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config()
-}
+// aif (process.env.NODE_ENV !== "production") {
+//   require("dotenv").config()
+// }
 
 const express = require("express");
 const path = require("path");
@@ -14,6 +14,7 @@ const flash = require("express-flash")
 const session = require("express-session")
 const methodOverride = require("method-override")
 const { promisify } = require("util");
+const nodemailer = require("nodemailer");
 
 //ALL the DATABASE
 require("./db/conn");
@@ -50,6 +51,41 @@ app.set("views",templates_path);
 hbs.registerPartials(partials_path);
 
 
+//for sending mail for sending
+const sendverifymail = async(name,email,user_id)=>{
+  try{
+      const transporter = nodemailer.createTransport({
+      host:'smtp.gmail.com',
+      port:587,
+      secure:false,
+      requireTLS: true,
+      auth:{
+          user:"malam201304@bscse.uiu.ac.bd",
+          pass:"zqyz ixje veps qtfh" 
+
+
+      }
+     });
+     const mailOptions = {
+      from : 'malam201304@bscse.uiu.ac.bd',
+      to: email,
+      subject: 'For verification StudySage acount',
+      html:'<p> Hii, '+name+', click here to verify <a href="http://localhost:3000/email_verified?id='+user_id+'"> Verify</a> your mail.</p>'
+     }
+     transporter.sendMail(mailOptions,function(error,info){
+      if(error){
+        console.log(error);
+      }else{
+        console.log("Email send:-",info.response);
+      }
+     })
+    
+  }catch(error){
+    console.log(error.massage);
+  }
+}
+
+
 
 // getting pages from templates/views
 app.get("/", (req, res) => {
@@ -67,6 +103,9 @@ app.get("/submit_question", (req, res) => {
 app.get("/after_post_question", (req, res) => {
   res.render("after_post_question");
 });
+app.get("/email_verified", (req, res) => {
+  res.render("email_verified");
+});
 
 app.get("/k", async (req, res) => {
   try {
@@ -77,6 +116,7 @@ app.get("/k", async (req, res) => {
       res.status(500).send(error);
   }
 });
+
 
 
 
@@ -145,7 +185,7 @@ const users = []
 
 app.use(express.urlencoded({extended: false}))
 
-const sessionSecret = "secretkey";
+const sessionSecret = "secfetkey";
 app.use(session({
   secret: sessionSecret,
   resave: false, // We wont resave the session variable if nothing is changed
@@ -188,22 +228,46 @@ app.post("/register", async (req, res) => {
     console.log(req.body);
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     const registerUser = new RegisterUser({
-          kk: Date.now().toString(), 
+          
           name: req.body.name,
           email: req.body.email,
           password: hashedPassword,
-       
+          is_admin:0,
+          date: Date.now().toString(), 
     });
 
     const result = await registerUser.save();
-    res.status(201).render("login", { registerUser: result });
+    if(result){
+      sendverifymail(req.body.name,req.body.email,result._id);
+      // Use flash message and redirect instead of render
+      req.flash("success", "Registration successful. Please verify your email.");
+      res.redirect("/login");
+    } else {
+      // Use flash message for failure and redirect
+      req.flash("error", "Registration failed.");
+      res.redirect("/register");
+    }
   } catch (error) {
     console.error("MongoDB Error:", error); 
-    res.status(400).send(error);
-    res.redirect("/register")
+    res.status(400).flash("error", "An error occurred. Please try again.");
+    res.redirect("/register");
   }
 });
 
+
+
+
+//UPDATE user verification 
+const verfyMail = async (req, res) => {
+  try {
+    const updateInfo = await RegisterUser.updateOne({ _id: req.query.id }, { $set: {is_verified:1 } });
+    console.log(updateInfo);
+    console.log('User ID:', req.query.id);
+    res.render("email_verified");
+  } catch (error) {
+    console.log(error.message); // Change 'massage' to 'message'
+  }
+};
 
 
 

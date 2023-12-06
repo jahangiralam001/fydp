@@ -14,7 +14,19 @@ const registerSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    } 
+    },
+    is_admin:{
+        type: Number,
+        require:true
+    },
+    is_verified:{
+        type: Number,
+        default:0
+    },
+    date:{
+        type:Date,
+         
+    }
 });
 
 // Define the model using the schema__class
