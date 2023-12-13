@@ -60,14 +60,14 @@ const sendverifymail = async(name,email,user_id)=>{
       secure:false,
       requireTLS: true,
       auth:{
-          user:"malam201304@bscse.uiu.ac.bd",
-          pass:"zqyz ixje veps qtfh" 
+          user:"sdfdsfsda7@gmail.com",
+          pass:"dfdgdfhh" 
 
 
       }
      });
      const mailOptions = {
-      from : 'malam201304@bscse.uiu.ac.bd',
+      from : 'sdfdsfsda7@gmail.com',
       to: email,
       subject: 'For verification StudySage acount',
       html:'<p> Hii, '+name+', click here to verify <a href="http://localhost:3000/email_verified?id='+user_id+'"> Verify</a> your mail.</p>'
@@ -87,15 +87,15 @@ const sendverifymail = async(name,email,user_id)=>{
 
 
 
-// getting pages from templates/views
+
+
+
+// getting Routes from templates/views
 app.get("/", (req, res) => {
   res.render("landing_page");
 });
-// app.get("/login", (req, res) => {
-//   res.render("login");
-// });
-// app.get("/register", (req, res) => {
-//   res.render("register");
+// app.get("/Dashboard", (req, res) => {
+//   res.render("Dashboard",{name:req.result.name});
 // });
 app.get("/submit_question", (req, res) => {
   res.render("submit_question");
@@ -103,9 +103,26 @@ app.get("/submit_question", (req, res) => {
 app.get("/after_post_question", (req, res) => {
   res.render("after_post_question");
 });
-app.get("/email_verified", (req, res) => {
-  res.render("email_verified");
+
+app.get("/email_verified", async (req, res) => {
+  const userId = req.query.id;
+  try {
+    if (!userId) {
+      throw new Error("No user ID provided");
+    }
+    const updateInfo = await RegisterUser.updateOne({ _id: userId }, { $set: { is_verified: 1 } });
+    console.log('Update Info:', updateInfo);
+    if (updateInfo.matchedCount === 0) {
+      throw new Error("No user found with the provided ID");
+    }
+    res.render("email_verified");
+  } catch (error) {
+    console.error("Verification failed. Error:", error);
+    res.send("Verification failed. Error: " + error.message);
+  }
 });
+
+
 
 app.get("/k", async (req, res) => {
   try {
@@ -164,6 +181,8 @@ async function getUserByEmail(email) {
 async function getUserById(id) {
   return await RegisterUser.findById(id);
 }
+
+ 
  
  
 
@@ -173,15 +192,6 @@ initializePassport(
   id => getUserById(id)
 )
 
-// initializePassport(
-//   passport,
-//   email => users.find(user => user.email === email),
-//   id => users.find(user => user.id === id)
-//   )
-
-
-
-const users = []
 
 app.use(express.urlencoded({extended: false}))
 
@@ -211,16 +221,16 @@ app.post('/login', (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       req.flash('success', 'Successfully logged in!');
-      res.redirect('/');
+      res.redirect('Dashboard');
     });
   })(req, res, next);
 });
 
-// app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
-//   successRedirect: "/",
-//   failureRedirect: "/login",
-//   failureFlash: true
-// }))
+app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
+  successRedirect: "Dashboard",
+  failureRedirect: "/login",
+  failureFlash: true
+}))
 //chsdlfjdfdshfsd
 // ////////////////________Register user data storing on database_______////////////////////////
 app.post("/register", async (req, res) => {
@@ -257,24 +267,16 @@ app.post("/register", async (req, res) => {
 
 
 
-//UPDATE user verification 
-const verfyMail = async (req, res) => {
-  try {
-    const updateInfo = await RegisterUser.updateOne({ _id: req.query.id }, { $set: {is_verified:1 } });
-    console.log(updateInfo);
-    console.log('User ID:', req.query.id);
-    res.render("email_verified");
-  } catch (error) {
-    console.log(error.message); // Change 'massage' to 'message'
-  }
-};
-
 
 
 
 
 // Routes
-app.get('/', checkAuthenticated, (req, res) => {
+app.get("/Dashboard",checkAuthenticated, (req, res) => {
+  res.render("Dashboard");
+   
+});
+app.get('/', checkNotAuthenticated, (req, res) => {
   res.render("landingpage")
 })
 
@@ -285,6 +287,40 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 app.get('/register', checkNotAuthenticated, (req, res) => {
   res.render("register")
 })
+
+//students profiling routers
+
+app.get('/my_courses',checkAuthenticated, (req, res) => {
+  res.render('student/my_courses');
+});
+app.get('/my_devices',checkAuthenticated, (req, res) => {
+  res.render('student/my_devices');
+});
+app.get('/my_overview',checkAuthenticated, (req, res) => {
+  res.render('student/my_overview');
+});
+app.get('/payment_method',checkAuthenticated, (req, res) => {
+  res.render('student/payment_method');
+});
+app.get('/security',checkAuthenticated, (req, res) => {
+  res.render('student/security');
+});
+// app.get('/', (req, res) => {
+//   res.render('');
+// });
+app.get("/student_profile",checkAuthenticated, async (req, res) => {
+  try {
+      // Retrieve data from the database
+      
+      const student_p_Data = await RegisterUser.find();
+      res.render("student/student_profile", {sp_data : student_p_Data });
+      // console.log(student_p_Data.email)
+  } catch (error) {
+      res.status(500).send(error);
+  }
+});
+// End Routes student routes
+
 // End Routes
 
 // app.delete('/logout', (req, res) => {
@@ -316,7 +352,6 @@ function checkNotAuthenticated(req, res, next){
 
 //___________________________________________________________
 // _____________________endlogin_____________________
-
 
 
 

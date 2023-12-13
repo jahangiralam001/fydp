@@ -23,57 +23,34 @@
 			Home
 		</button>
    </div>
-	<div class="middle-section"><input class="search-bar"type="text" placeholder="Find books or homework solutions"><button class="search-button">
+	<div class="middle-section"><input class="search-bar"type="text" placeholder="Find books or homework solutions">
+	<button class="search-button">
 
 		<img class="search_icon" src="icons\search.png" width="30" height="30" alt="search_img">
 	</button>
+	<a href="student_profile"><button>Profile</button></a>
+	<form action="/logout?_method=DELETE" method="post">
+	<button type="submit">Logout</button>
+	</form>
 		
     </div>
-
-<div class="sidebar">
- 	<div class="study-sage">
- 			Study Sage
- 	</div>
- 	<div>
- 		
-		 <a href="landing_page.html"><button class="Home""> Home</button></a>
- 	</div>
- 	<div>
- 		<button class="Study-tools">Study tools</button>
- 	</div>
- 	<div>
- 		
-		 <a href="submit_question.html"><button class="Post-a-question""> Post a question </button></a>
- 	</div>
- 	<div>
- 		<button class="AI-Expert">AI Expert</button>
- 	</div>
- 	<div>
- 		<button class="My-Courses">My Courses</button>
- 	</div>
- 	<div>
- 		<button class="My-books">My books</button>
- 	</div>
- 	<div>
- 		<button class="career">Career</button>
- 	</div>
- 	<div>
- 		<button class="Life">Life</button>
- 	</div>
- </div>
+</div>
+  {{!-- sidebar for all --}}
+		 {{>sidebar}}
+{{!-- sidebar for all --}}
 
  <div class="card">	
  	
- 	    <input class="Post-a-question-box" type="text" name="copypaste" placeholder="For example: what is gpt3?">
+ 	   <input class="Post-a-question-box" type="text" name="copypaste" placeholder="For example: what is gpt3?">
 <div>
-	<p class="post">Post a question here</p>
+	<p class="post"> {{name}}Post a question here</p>
 </div>
 <div>
 	<p class="sub">your toughest questions solved step by step</p>
 </div>
 <div>
 	<!-- <button class="continue-to-post-button">continue to post</button> -->
-	<a href="submit_question.html"><button class="continue-to-post-button""> continue to post</button></a>
+	<a href="submit_question"><button class="continue-to-post-button""> continue to post</button></a>
 </div>
 <div>
 	<button class="AI-Expert-button">AI Expert</button>
