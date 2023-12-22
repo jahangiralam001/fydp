@@ -8,9 +8,9 @@
 
 <div class="header">
 	<div class="left-section">
-		<button class="sg">
+		<a href="Dashboard"><button class="sg">
 			Study sage
-		</button>
+		</button></a> 
    </div>
 
 <div>
@@ -31,11 +31,11 @@
     width: 300px;'>
 </div>
     <div class="profile-d">
-		 {{#each sp_data}}
-           {{#if this.email}}
-		   <p>Name:{{this.name}}</p>
-          {{/if}}
-		 {{/each}}
+		<h3>Basic info</h3>
+		  <p>Name: {{sp_data.name}}</p>
+		  <p>Email: {{sp_data.email}}</p>
+		  <p>Joined : {{sp_data.date}}</p>
+		   
 	</div>
 
 

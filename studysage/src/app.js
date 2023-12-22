@@ -20,6 +20,7 @@ const nodemailer = require("nodemailer");
 require("./db/conn");
 const Test = require("./models/subQwithmail");
 const RegisterUser = require("./models/registerUser.js");
+const PostedQuestion = require("./models/postQuestion.js");
 
 
 
@@ -91,18 +92,18 @@ const sendverifymail = async(name,email,user_id)=>{
 
 
 // getting Routes from templates/views
-app.get("/", (req, res) => {
-  res.render("landing_page");
-});
+// app.get("/", (req, res) => {
+//   res.render("landing_page");
+// });
 // app.get("/Dashboard", (req, res) => {
 //   res.render("Dashboard",{name:req.result.name});
 // });
 app.get("/submit_question", (req, res) => {
   res.render("submit_question");
 });
-app.get("/after_post_question", (req, res) => {
-  res.render("after_post_question");
-});
+// app.get("/after_post_question", (req, res) => {
+//   res.render("after_post_question");
+// });
 
 app.get("/email_verified", async (req, res) => {
   const userId = req.query.id;
@@ -276,10 +277,17 @@ app.get("/Dashboard",checkAuthenticated, (req, res) => {
   res.render("Dashboard");
    
 });
-app.get('/', checkNotAuthenticated, (req, res) => {
-  res.render("landingpage")
-})
+// app.get('/', checkNotAuthenticated, (req, res) => {
+//   res.render("landingpage")
+// })
+app.get("/", checkNotAuthenticated, async (req, res) => {
+  try {
 
+    res.render("landing_page");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 app.get('/login', checkNotAuthenticated, (req, res) => {
   res.render("login")
 })
@@ -288,6 +296,101 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
   res.render("register")
 })
 
+
+app.get("/after_post_question", (req, res) => {
+  res.render("after_post_question");
+});
+
+
+// app.get("/after_post_question", checkAuthenticated, async (req, res) => {
+//   try {
+//     // Retrieve data from the database for the currently authenticated user
+//     const currentUser = await req.user;
+
+//     const postedQ = await PostedQuestion.findById(currentUser._id);
+//     //console.log("sp_data:", student_p_Data);
+
+    
+//     res.render("after_post_question", { question_data: postedQ });
+//   } catch (error) {
+//     res.status(500).send(error);
+//   }
+// });
+
+
+
+ 
+
+app.post("/submit_question", upload.single("file"), async (req, res) => {
+  try {
+   
+
+    // Ensure req.file is defined before accessing its properties
+    const fileData = req.file ? req.file.buffer.toString('base64') : null;
+    const contentType = req.file ? req.file.mimetype : null;
+
+    console.log(req.body);
+
+     
+    
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
+
+    const formattedTime = currentDate.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    });
+    
+    const currentUser = await req.user;
+    const postedQ = new PostedQuestion({
+      student_id: currentUser._id,
+      sub: req.body.sub,
+      question: req.body.question,
+      file: {
+        data: fileData,
+        contentType: contentType,
+      },
+      answer: "",
+      answer_file: {
+        data: "",
+        contentType: "",
+      },
+      question_id: req.body.question_id,
+      date: `${formattedDate} ${formattedTime}`,
+      is_answered: 0,
+      answered_By: 0,
+    });
+
+    const result = await postedQ.save();
+    res.status(201).render("k", { question_data: result });
+  } catch (error) {
+    console.error("MongoDB Error:", error);
+    res.status(400).send(error);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------
 //students profiling routers
 
 app.get('/my_courses',checkAuthenticated, (req, res) => {
@@ -302,23 +405,47 @@ app.get('/my_overview',checkAuthenticated, (req, res) => {
 app.get('/payment_method',checkAuthenticated, (req, res) => {
   res.render('student/payment_method');
 });
-app.get('/security',checkAuthenticated, (req, res) => {
-  res.render('student/security');
+
+app.get("/security", checkAuthenticated, async (req, res) => {
+  try {
+    // Retrieve data from the database for the currently authenticated user
+    const currentUser = await req.user;
+
+    // Log the user object
+    //console.log("User", currentUser.email, "authenticated successfully");
+
+    const student_p_Data = await RegisterUser.findById(currentUser._id);
+    //console.log("sp_data:", student_p_Data);
+
+    
+    res.render("student/security", { sp_data: student_p_Data });
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 // app.get('/', (req, res) => {
 //   res.render('');
 // });
-app.get("/student_profile",checkAuthenticated, async (req, res) => {
+
+
+app.get("/student_profile", checkAuthenticated, async (req, res) => {
   try {
-      // Retrieve data from the database
-      
-      const student_p_Data = await RegisterUser.find();
-      res.render("student/student_profile", {sp_data : student_p_Data });
-      // console.log(student_p_Data.email)
+    // Retrieve data from the database for the currently authenticated user
+    const currentUser = await req.user;
+
+    // Log the user object
+    //console.log("User", currentUser.email, "authenticated successfully");
+
+    const student_p_Data = await RegisterUser.findById(currentUser._id);
+    //console.log("sp_data:", student_p_Data);
+
+    
+    res.render("student/student_profile", { sp_data: student_p_Data });
   } catch (error) {
-      res.status(500).send(error);
+    res.status(500).send(error);
   }
 });
+
 // End Routes student routes
 
 // End Routes
@@ -344,7 +471,7 @@ function checkAuthenticated(req, res, next){
 
 function checkNotAuthenticated(req, res, next){
   if(req.isAuthenticated()){
-      return res.redirect("/")
+      return res.redirect("/Dashboard")
   }
   next()
 }
