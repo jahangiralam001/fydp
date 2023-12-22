@@ -12,7 +12,7 @@
 
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://sage:sage123@cluster0.u1l2oxj.mongodb.net/studysage", {
+mongoose.connect("mongodb+srv://sdffsdfsdf@cluster0.u1l2oxj.dsfdf.net/sdfdsf", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
