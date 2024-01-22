@@ -370,7 +370,7 @@ app.post("/submit_question", upload.single("file"), async (req, res) => {
       question_id: req.body.question_id,
       date: `${formattedDate} ${formattedTime}`,
       is_answered: 0,
-      answered_By: 0,
+      answered_by: 0,
     });
 
     const result = await postedQ.save();

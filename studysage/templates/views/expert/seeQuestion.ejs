@@ -73,30 +73,37 @@
 	</script>
 
 <div class="container">
- <!-- Image Upload Section -->
- <div class="image-upload-container">
-	<p class="sq">Answer the question here</p>
-	<textarea id="textAnswer" name="textAnswer" rows="4" placeholder="Write your answer here..."></textarea>
-	<div class="upload-box">
-	  <input type="file" id="imageUpload" name="imageUpload[]" class="image-upload-input" accept="image/*" multiple hidden onchange="previewImages()" />
-	  <label for="imageUpload" class="upload-label">
-		<span class="upload-text">Drag an image here, or click to select files</span>
-		<span class="upload-button">Upload image(s) to begin labeling</span>
-	  </label>
-	  <div id="imagePreview" class="image-preview-container"></div>
-	</div>
-	
-	
-	<div class="buttons">
-	  <button id="prev" disabled>Prev</button>
-	  <button id="next" onclick="submitAnswer()">Next</button>
-	</div>
+    <form action="/expert/submit_answer" method="POST" enctype="multipart/form-data">
+      <!-- Image Upload Section -->
+      <div class="image-upload-container">
+        <p class="sq">Answer the question here</p>
+        
+        <!-- Timer -->
+        <div class="timer-container">
+          <p id="timer">10</p> <!-- Initial time (in seconds) -->
+        </div>
+  
+        <textarea id="textAnswer" name="textAnswer" rows="4" placeholder="Write your answer here..."></textarea>
+  
+        <div class="upload-box">
+          <input type="file" id="imageUpload" name="imageUpload" class="image-upload-input" accept="image/*" multiple hidden onchange="previewImages()" />
+          <label for="imageUpload" class="upload-label">
+            <span class="upload-text">Drag an image here, or click to select files</span>
+            <span class="upload-button">Upload image(s) to begin labeling</span>
+          </label>
+          <div id="imagePreview" class="image-preview-container"></div>
+        </div>
+        
+        <input type="hidden" name="questionId" value="<%= Squestion._id %>">
+  
+        <div class="buttons">
+          <button type="button" id="prev" disabled>Prev</button>
+          <button type="submit" id="next">Submit</button>
+        </div>
+      </div>
+    </form>
   </div>
   
-
-
-</div>
-
  
 
 <section class="image-section">
@@ -106,21 +113,25 @@
 
     <!-- Dynamic content container -->
     <div class="content-container">
-        <!-- Placeholder for an image fetched from the database -->
-        <div class="image-container">
-            <img src="<%= Squestion.question %>" class="responsive-content" id="dynamic-image">
-        </div>
-
-        <!-- Placeholder for text fetched from the database -->
-        <div class="text-container">
-            <p class="dynamic-text" id="dynamic-text"><%= Squestion.question %></p>
-        </div>
+        <!-- Check and display the image if it exists -->
+        <% if (Squestion.file && Squestion.file.data) { %>
+            <!-- Image fetched from the database -->
+            <div class="image-container">
+                <img src="data:<%= Squestion.file.contentType %>;base64,<%= Squestion.file.data %>" class="responsive-content" id="dynamic-image">
+            </div>
+        <% } %>
+    
+        <!-- Check and display the text if it exists -->
+        <% if (Squestion.question) { %>
+            <!-- Text fetched from the database -->
+            <div class="text-container">
+                <p class="dynamic-text" id="dynamic-text"><%= Squestion.question %></p>
+            </div>
+        <% } %>
     </div>
+    
 
-    <!-- Timer -->
-    <div class="timer-container">
-        <p id="timer">10</p> <!-- Initial time (in seconds) -->
-    </div>
+
 
     <div class="button-container">
         <a href="#" class="button-link">
@@ -132,27 +143,44 @@
         </a>
     </div>
 </section>
-	  
+
 	  
 
     <script>
-		    // Function to update the timer
-			function updateTimer() {
-        const timerElement = document.getElementById('timer');
-        let time = parseInt(timerElement.textContent);
 
-        if (time > 0) {
-            time--;
-            timerElement.textContent = time;
-        } else {
-            // Redirect to a new question or perform the desired action
-            //window.location.href = 'expert/seeQuestion'; // Change to the appropriate URL
-			window.location.reload();
-        }
+// Function to format the time in HH:MM:SS
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return [hours, minutes, remainingSeconds].map(unit => String(unit).padStart(2, '0')).join(':');
+}
+
+// Function to update the timer
+function updateTimer() {
+    const timerElement = document.getElementById('timer');
+    let time = parseInt(timerElement.dataset.seconds);
+
+    if (time > 0) {
+        time--; 
+        timerElement.dataset.seconds = time; 
+        timerElement.textContent = formatTime(time); 
+    } else {
+        
+        window.location.reload();
     }
+}
 
-    // Update the timer every second (1000 milliseconds)
-    setInterval(updateTimer, 1000);
+
+const initialTime = 2 * 60 * 60; // 2 hours in seconds
+document.getElementById('timer').dataset.seconds = initialTime;
+document.getElementById('timer').textContent = formatTime(initialTime);
+
+// Update the timer every second (1000 milliseconds)
+setInterval(updateTimer, 1000);
+
+
+
 
 
 

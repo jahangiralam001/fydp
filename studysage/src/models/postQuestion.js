@@ -39,7 +39,7 @@ const posted_qSchema = new mongoose.Schema({
         type: Number,
         default:0
     },
-    answered_By:{
+    answered_by:{
         type: String,
           
     },

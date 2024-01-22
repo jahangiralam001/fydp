@@ -1,12 +1,27 @@
 const express = require("express");
 const path = require("path");
+const multer = require('multer');
 const expert_route = express();
 
 
 
 const session = require("express-session");
 const configEX = require("../config/configex");
-expert_route.use(session({ secret: configEX.sessionSecret }));
+const storage = multer.memoryStorage(); // Use memory storage for simplicity
+const upload = multer({ storage: storage });
+
+// Correct Session configuration
+expert_route.use(session({
+    secret: configEX.sessionSecret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true, // Recommended for security
+        maxAge: 24 * 60 * 60 * 1000 // 24 hours (optional)
+    }
+}));
+
+
 
 const bodyParser = require("body-parser");
 expert_route.use(bodyParser.json());
@@ -28,7 +43,12 @@ const auth = require('../middleware/expertauth');
 const expertController = require("../controllers/expertController");
 const expertPostController = require("../controllers/expertPostController");
 
-
+const noCache = (req, res, next) => {
+  res.header('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  res.header('Pragma', 'no-cache');
+  res.header('Expires', '-1');
+  next();
+};
 //controller_get
 expert_route.get('/',auth.isLogout, expertController.loadexLogin);
 expert_route.post('/',expertController.verifyLogin);
@@ -36,7 +56,8 @@ expert_route.get('/home', auth.isLogin,expertController.loadexDashboard);
 expert_route.get('/logout',auth.isLogin,expertController.logout);
 
 //controller_post_get
-expert_route.get('/seeQuestion',expertPostController.getRandomQuestion);
+expert_route.get('/seeQuestion',auth.isLogin,expertPostController.getRandomQuestion);
+expert_route.post("/submit_answer", upload.single("imageUpload"), expertPostController.submitAnswer);
 
 
 
