@@ -1,6 +1,6 @@
 // const mongoose = require("mongoose");
 
-// mongoose.connect("mongodb://103.253.176.50/30/studysage",{
+// mongoose.connect("mongodb://143.244.174.54/34/sdfdsf",{
 //     useNewUrlParser:true,
 //     useUnifiedTopology:true,
 //     useCreateIndex:true
@@ -12,7 +12,7 @@
 
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://sage:sage123@cluster0.u1l2oxj.mongodb.net/studysage", {
+mongoose.connect("mongodb+srv://sdffsdfsdf@cluster0.u1l2oxj.dsfdf.net/sdfdsf", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
