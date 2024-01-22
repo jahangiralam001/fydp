@@ -47,6 +47,7 @@ app.use(express.urlencoded({extended:false}));
 
 
 app.use(express.static(static_path));
+// app.set("view engine", "ejs");
 app.set("view engine", "hbs");
 app.set("views",templates_path);
 hbs.registerPartials(partials_path);
@@ -202,8 +203,8 @@ app.use(session({
   resave: false, // We wont resave the session variable if nothing is changed
   saveUninitialized: false
 }))
-app.use(flash())
-app.use(passport.initialize()) 
+app.use(flash());
+app.use(passport.initialize()); 
 app.use(passport.session())
 app.use(methodOverride("_method"))
 
@@ -232,7 +233,7 @@ app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
   failureRedirect: "/login",
   failureFlash: true
 }))
-//chsdlfjdfdshfsd
+//chsdlfjdfdshfs
 // ////////////////________Register user data storing on database_______////////////////////////
 app.post("/register", async (req, res) => {
   try {
@@ -289,16 +290,22 @@ app.get("/", checkNotAuthenticated, async (req, res) => {
   }
 });
 app.get('/login', checkNotAuthenticated, (req, res) => {
-  res.render("login")
-})
+  console.log(req.flash('error'));
+  res.render("login.hbs", { messages: req.flash('error') });
+});
+
+
+// app.get('/expret_login', (req, res) => {
+//   res.render("expret_login")
+// })
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
   res.render("register")
 })
 
 
-app.get("/after_post_question", (req, res) => {
-  res.render("after_post_question");
+app.get("/after_post_q", (req, res) => {
+  res.render("after_post_q");
 });
 
 
@@ -367,16 +374,19 @@ app.post("/submit_question", upload.single("file"), async (req, res) => {
     });
 
     const result = await postedQ.save();
-    res.status(201).render("k", { question_data: result });
+    res.status(201).render("after_post_q", { question_data: result });
   } catch (error) {
     console.error("MongoDB Error:", error);
     res.status(400).send(error);
   }
 });
 
+//------------------------------------
+//EXpert profiling routers
 
 
-
+const expertRoute = require('./routes/expertRoutes.js');
+app.use('/expert',expertRoute);
 
 
 

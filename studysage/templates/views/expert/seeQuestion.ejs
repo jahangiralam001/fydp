@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Expert Q & A</title>
+	<link rel="stylesheet" type="text/css" href="css\expert_css\seeQuestion.css"/>
+	<link rel="stylesheet" type="text/css" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <!-- <script src="script.js" defer></script> -->
+
+</head>
+<body>
+	
+ <header class="header">
+	<nav class="nav">
+		<a href="#" class="nav_logo">Study Sage</a>
+		<ul class="nav_items">
+			<li class="nav_item">
+				<a href="#" class="nav_link">Home</a>
+				<a href="#" class="nav_link">Expert Q & A</a>
+				<a href="#" class="nav_link">My answers</a>
+			</li>
+		</ul>
+
+		<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg" alt="User Profile" class="user-pic" onclick="toggleMenu()">
+
+		<div class="sub-menu-wrap" id="subMenu">
+			<div class="sub-menu">
+				<div class="user-info">
+					<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+				<h2>User</h2>
+					
+				</div>
+				<hr>
+	<a href="#" class="sub-menu-link">
+	<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+	<p>Edit Profile</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+	<p>Settings & Privacy</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+	<p>Help & Support</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+	<p>Logout</p>
+	<span>></span>
+	</a>
+			</div>
+			
+		</div>
+		
+	</nav>
+	</header>
+
+	<script>
+		let subMenu = document.getElementById("subMenu");
+		function toggleMenu() {
+			subMenu.classList.toggle("open-menu");
+		}
+	</script>
+
+<div class="container">
+ <!-- Image Upload Section -->
+ <div class="image-upload-container">
+	<p class="sq">Answer the question here</p>
+	<textarea id="textAnswer" name="textAnswer" rows="4" placeholder="Write your answer here..."></textarea>
+	<div class="upload-box">
+	  <input type="file" id="imageUpload" name="imageUpload[]" class="image-upload-input" accept="image/*" multiple hidden onchange="previewImages()" />
+	  <label for="imageUpload" class="upload-label">
+		<span class="upload-text">Drag an image here, or click to select files</span>
+		<span class="upload-button">Upload image(s) to begin labeling</span>
+	  </label>
+	  <div id="imagePreview" class="image-preview-container"></div>
+	</div>
+	
+	
+	<div class="buttons">
+	  <button id="prev" disabled>Prev</button>
+	  <button id="next" onclick="submitAnswer()">Next</button>
+	</div>
+  </div>
+  
+
+
+</div>
+
+ 
+
+<section class="image-section">
+    <div>
+        <p class="sq" style="padding: 5px,0p,5px;">Student Question</p>
+    </div>
+
+    <!-- Dynamic content container -->
+    <div class="content-container">
+        <!-- Placeholder for an image fetched from the database -->
+        <div class="image-container">
+            <img src="<%= Squestion.question %>" class="responsive-content" id="dynamic-image">
+        </div>
+
+        <!-- Placeholder for text fetched from the database -->
+        <div class="text-container">
+            <p class="dynamic-text" id="dynamic-text"><%= Squestion.question %></p>
+        </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-container">
+        <p id="timer">10</p> <!-- Initial time (in seconds) -->
+    </div>
+
+    <div class="button-container">
+        <a href="#" class="button-link">
+            <button class="skip-q">Skip question</button>
+        </a>
+
+        <a href="#" class="button-link">
+            <button class="ext">Exit</button>
+        </a>
+    </div>
+</section>
+	  
+	  
+
+    <script>
+		    // Function to update the timer
+			function updateTimer() {
+        const timerElement = document.getElementById('timer');
+        let time = parseInt(timerElement.textContent);
+
+        if (time > 0) {
+            time--;
+            timerElement.textContent = time;
+        } else {
+            // Redirect to a new question or perform the desired action
+            //window.location.href = 'expert/seeQuestion'; // Change to the appropriate URL
+			window.location.reload();
+        }
+    }
+
+    // Update the timer every second (1000 milliseconds)
+    setInterval(updateTimer, 1000);
+function previewImages() {
+  var files = document.getElementById('imageUpload').files;
+  var preview = document.getElementById('imagePreview') || createPreviewContainer();
+
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var img = document.createElement("img");
+    img.classList.add("uploaded-image");
+    img.file = file;
+
+    var reader = new FileReader();
+    reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+    reader.readAsDataURL(file);
+
+    var container = document.createElement("div");
+    container.classList.add("image-container");
+
+    // Add a remove button to each image container
+    var removeButton = document.createElement("button");
+    removeButton.textContent = "X";
+    removeButton.classList.add("remove-image-button");
+    removeButton.onclick = function() {
+      // Remove the image container
+      this.parentNode.parentNode.removeChild(this.parentNode);
+    };
+
+    container.appendChild(removeButton);
+    container.appendChild(img);
+    preview.appendChild(container);
+  }
+}
+
+function createPreviewContainer() {
+  var previewContainer = document.createElement("div");
+  previewContainer.id = "imagePreview";
+  previewContainer.classList.add("image-preview-container");
+  document.querySelector('.upload-box').appendChild(previewContainer);
+  return previewContainer;
+}
+
+function createPreviewContainer() {
+  var previewContainer = document.createElement("div");
+  previewContainer.id = "imagePreview";
+  previewContainer.classList.add("image-preview-container");
+  document.querySelector('.upload-box').appendChild(previewContainer);
+  return previewContainer;
+}
+
+
+
+// random call
+
+
+document.querySelector('.skip-q').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Make a request to /seeQuestion
+    fetch('expert/seeQuestion')
+        .then(response => {
+            if (response.ok) {
+                // If the response is successful, update the page content
+                window.location.reload(); // Reload the page to get a new random question
+            } else {
+                console.error('Error fetching new question:', response.status);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching new question:', error);
+        });
+});
+
+
+
+      
+      function goToNextPage() {
+    
+    window.location.href = 'upload ans.html';
+}
+
+    </script>
+
+</body>
+</html>

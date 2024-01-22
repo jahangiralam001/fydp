@@ -20,7 +20,9 @@ function initialize(passport, getUserByEmail, getUserById) {
                 if (user.is_verified == 0) {
                     console.log(`User ${email} is not verified`);
                     return done(null, false, { message: "Verify mail" });
-                } else {
+                } 
+              
+                else {
                     console.log(`User ${email} authenticated successfully`);
                     return done(null, user);
                 }

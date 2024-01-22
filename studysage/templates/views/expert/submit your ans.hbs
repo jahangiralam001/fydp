@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Submit your answer</title>
+    <link rel="stylesheet" type="text/css" href="css/expert_css/submit_ans.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <script src="submit your ans.js" defer></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            tinymce.init({
+                selector: "#textEditor",
+                height: 300,
+                width: "100%",
+                plugins: [
+                    "advlist autolink lists link image charmap print preview anchor",
+                    "searchreplace visualblocks code fullscreen",
+                    "insertdatetime media table paste code help wordcount",
+                ],
+                toolbar:
+                    "undo redo | formatselect | " +
+                    "bold italic backcolor | alignleft aligncenter " +
+                    "alignright alignjustify | bullist numlist outdent indent | " +
+                    "removeformat | help",
+            });
+        });
+    </script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <a href="#" class="nav_logo">Study Sage</a>
+        <ul class="nav_items">
+            <li class="nav_item">
+                <a href="#" class="nav_link">Home</a>
+                <a href="#" class="nav_link">Expert Q & A</a>
+                <a href="#" class="nav_link">My answers</a>
+            </li>
+        </ul>
+
+        <img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg" alt="User Profile" class="user-pic" onclick="toggleMenu()">
+
+        <div class="sub-menu-wrap" id="subMenu">
+			<div class="sub-menu">
+				<div class="user-info">
+					<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+				<h2>User</h2>
+					
+				</div>
+				<hr>
+	<a href="#" class="sub-menu-link">
+	<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+	<p>Edit Profile</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+	<p>Settings & Privacy</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+	<p>Help & Support</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="F:\fydp\Expert Profile\Expert-profile-icons\user.jpg">
+	<p>Logout</p>
+	<span>></span>
+	</a>
+			</div>
+			
+		</div>
+		
+	</nav>
+	</header>
+   
+
+<div class="container">
+    <div class="steps">
+        <span class="circle active">Tag the question    </span>
+        <span class="circle"> Step-by-step    </span>
+        <span class="circle"> Final answer    </span>
+        <div class="progress-bar">
+            <span class="indicator"></span>
+        </div>
+    </div>
+
+    <div id="editorContainer" class="editor-container">
+        <div id="editorTitle" class="editor-title">Your answer step-by-step</div>
+        <div id="textEditor"></div>
+    </div>
+
+    <div class="content">
+
+    <p class="tg">Step-by-step: Adding step-by-step and explanations, helps students learn more efficiently</p>
+
+    <div class="buttons">
+        <button id="prev" onclick="goToPrevPage()">Prev</button>
+        <button id="submit-your-ans">Submit your answer</button>
+    </div>
+</div>
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+    function toggleMenu() {
+        subMenu.classList.toggle("open-menu");
+    }
+</script>
+
+<section class="image-section">
+  <p class="sq">Student question</p>
+        
+        <img src="C:\Users\ACER\Pictures\Planet9\Planet9_3840x2160.jpg" alt="" class="ans-img" ;>
+        <a href="#">
+  <button class="skip-q">Skip question</button>
+</a>
+
+ <a href="#">
+  <button class="ext">Exit</button>
+</a>
+
+    </section>
+
+
+<script>
+        function goToPrevPage() {
+            window.location.href = 'upload ans.html';
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,350 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Arial";
+	color: blue;
+	font-weight: bold;
+}
+a{
+	color: black;
+}
+.header{
+	position: fixed;
+	height: 80px;
+	width: 100%;
+	z-index: 100;
+	padding: 0 20px;
+	box-shadow: var(--box-shadow);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.nav{
+	max-width: 1100px;
+	width: 100%;
+	margin: 0 auto;
+}
+.nav,
+.nav_item{
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+.nav_logo{
+	font-size: 25px;
+	margin-right: 200px;
+	color: black;
+	font-weight: bold;
+	text-decoration: none; 
+        
+}
+.nav_item{
+	column-gap: 25px;
+}
+.nav_link{
+	 text-decoration: none; 
+        color: #000;
+}
+.nav_link:hover{ 
+        color: #000;
+
+}
+.user-pic{
+	width: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	margin-right: 30px;
+}
+.sub-menu-wrap{
+	position: absolute;
+	top: 100%;
+	right: 10%;
+	width: 320px;
+	max-height: 0px;
+	overflow: hidden;
+	transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu{
+	max-height: 400px;
+}
+
+.sub-menu{
+	background: #fff;
+	padding: 20px;
+	margin: 10px;
+}
+.user-info{
+	display: flex;
+	align-items: center;
+}
+.user-info h3{
+	font-weight: 500;
+}
+.user-info img {
+   width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.sub-menu hr{
+	border: 0;
+	height: 1px;
+	width: 100%;
+	background: #ccc;
+	margin: 15px 0 10px;
+}
+.sub-menu-link{
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #525252;
+	margin: 12px 0;
+}
+.sub-menu-link p{
+	width: 100%;
+}
+.sub-menu-link img{
+	width: 40px;
+	background: #e5e5e5;
+	border-radius: 50%;
+	padding: 8px;
+	margin-right: 15px;
+}
+.sub-menu-link span{
+	font-size: 22px;
+	transition: transform 0.5s;
+}
+.sub-menu-link:hover span{
+	transform: translate(5px);
+}
+
+.sub-menu-link:hover p{
+	font-weight: 600;
+}
+
+.container{
+	
+	background: #f6f7fb;
+	height: 80vh;
+	position: absolute;
+	max-width: 700px;
+	width: 100%;
+	bottom: 1rem;
+	right: 47rem;
+	margin-top: 20px;
+	
+}
+.container .steps{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+		
+}
+.steps{
+	position: relative;
+	z-index: 1;
+}
+.steps .circle{
+	display: flex;
+	height: 50px;
+	width: 155px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #e0e0e0;
+	background: #fff;
+
+}
+.steps .circle.active{
+	transition-delay: 0s;
+	
+  
+}
+.steps .progress-bar{
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	background: #e0e0e0;
+	z-index: -1;
+
+}
+.progress-bar .indicator{
+	position: absolute;
+	height: 100%;
+	width: 0%;
+	background: rgb(34,193,195);
+	transition: all 300ms ease;
+}
+span{
+	color: rgb(34,193,195)
+}
+
+.tg{
+	position: absolute;
+	top:5rem;
+	left: 2rem;
+	font-size: 14px;
+	color: black;
+}
+.clone-drop-1{
+	position: absolute;
+	top:6rem;
+}
+.clone-drop-2{
+	position: absolute;
+	top:10rem;
+}
+
+.buttons {
+	position: absolute;
+	width: 100%;
+	max-width: 60px;
+	border-radius: 20px;
+	border: none;
+	height: 100%;
+	max-height: 25px;
+	margin-top: 29rem;
+	left: 25rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.buttons button {
+  padding: 8px 20px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: rgb(34,193,195);
+  background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(45,194,253,1) 100%);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  
+}
+
+.buttons button#submit-your-ans {
+    height: 35px; 
+    min-width: 185px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: rgb(34,193,195);
+    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(45,194,253,1) 100%);  
+    
+}
+
+.buttons button#prev {
+  margin-right: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: rgb(34,193,195);
+  background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(45,194,253,1) 100%); 
+}
+
+.buttons button#next {
+  margin-left: 10px; 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: rgb(34,193,195);
+  background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(45,194,253,1) 100%); 
+}
+
+.buttons button:disabled{
+	background: #FFD7B5;
+	cursor: not-allowed;
+}
+.editor-container {
+    position: absolute;
+    top: 180px;
+    left: 80px;
+    width: 500px;
+    height: 350px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.editor-title {
+    cursor: move;
+    padding: 8px;
+    color: rgb(34,193,195);
+    user-select: none;
+}
+.editor-container {
+      width: 100%;
+      float: right;
+      margin-right: 20px;
+      margin-left: -80px; 
+      margin-top: -40px; 
+      padding: 20px;
+    }
+
+.textEditor {
+        height: 500px;
+    }
+.image-section{
+	position: absolute;
+    left: 50rem;
+    top: 1rem; 
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ans-img{
+
+	height: 75vh; 
+    max-height: 100vh;
+    width: 40rem;
+    object-fit: contain;
+}
+.sq{
+	
+	position: absolute;
+    top: 3rem; 
+    left: 1rem; 
+    font-size: 18px;
+    color: black;
+
+}
+.skip-q{
+	position: absolute;
+	left: 21.5rem;
+	font-size: 16px;
+	height: 50px;
+	width: 120px;
+	background: orange;
+	color: white;
+	border-radius: 8px;
+	border:none;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: rgb(34,193,195);
+    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(45,194,253,1) 100%); 
+  
+}
+.sq,
+.skip-q{
+	margin-top: -2rem;
+}
+.ext{
+	position: absolute;
+	left: 30rem;
+	font-size: 16px;
+	height: 50px;
+	width: 120px;
+	background: orange;
+	color: white;
+	border-radius: 8px;
+	border:none;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: rgb(34,193,195);
+    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(45,194,253,1) 100%); 
+}
+.ext{
+	margin-top: -2rem;
+}
+
+

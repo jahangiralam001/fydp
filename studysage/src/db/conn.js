@@ -7,7 +7,7 @@
 // }).then(() => {
 //     console.log("connectiong successful to StudySage");
 // }).catch((e) =>{
-// console.log("no connection")
+// console.log("no connection")cd 
 // })
 
 const mongoose = require("mongoose");
