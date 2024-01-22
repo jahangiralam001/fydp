@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jahangiralam001/fydp/issues"
   },
-  "homepage": "https://github.com/jahangiralam001/fydp#readme"
+  "homepage": "https://github.com/jahangiralam001/fydp#readme",
+  "dependencies": {
+    "openai": "^4.24.1"
+  }
 }
