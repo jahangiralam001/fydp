@@ -58,7 +58,7 @@ console.log("User ID: ", userId);
         // Log the response from the database
         console.log("Database Update Response:", updateResponse.answered_by);
 
-        res.redirect('/expert/home'); // Redirect after successful submission
+        res.redirect('/expert/seeQuestion'); // Redirect after successful submission
     } catch (error) {
         console.error("MongoDB Error:", error);
         res.status(500).send("Error submitting answer");

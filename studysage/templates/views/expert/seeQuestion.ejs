@@ -73,6 +73,10 @@
 	</script>
 
 <div class="container">
+  <div id="notification" class="notification-container" style="display: none;">
+    Your answer has been submitted!
+</div>
+
     <form action="/expert/submit_answer" method="POST" enctype="multipart/form-data">
       <!-- Image Upload Section -->
       <div class="image-upload-container">
@@ -83,7 +87,7 @@
           <p id="timer">10</p> <!-- Initial time (in seconds) -->
         </div>
   
-        <textarea id="textAnswer" name="textAnswer" rows="4" placeholder="Write your answer here..."></textarea>
+        <textarea id="textAnswer" name="textAnswer" rows="4" placeholder="Write your answer here..." required></textarea>
   
         <div class="upload-box">
           <input type="file" id="imageUpload" name="imageUpload" class="image-upload-input" accept="image/*" multiple hidden onchange="previewImages()" />
@@ -148,37 +152,22 @@
 
     <script>
 
-// Function to format the time in HH:MM:SS
-function formatTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
-    return [hours, minutes, remainingSeconds].map(unit => String(unit).padStart(2, '0')).join(':');
-}
+window.addEventListener('load', (event) => {
+    // Check if the 'submitted' query parameter is set to 'true'
+    const urlParams = new URLSearchParams(window.location.search);
+    const submitted = urlParams.get('submitted');
 
-// Function to update the timer
-function updateTimer() {
-    const timerElement = document.getElementById('timer');
-    let time = parseInt(timerElement.dataset.seconds);
+    if (submitted === 'true') {
+        // Show the notification
+        const notification = document.getElementById('notification');
+        notification.style.display = 'block';
 
-    if (time > 0) {
-        time--; 
-        timerElement.dataset.seconds = time; 
-        timerElement.textContent = formatTime(time); 
-    } else {
-        
-        window.location.reload();
+        // Hide the notification after a few seconds
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 3000);
     }
-}
-
-
-const initialTime = 2 * 60 * 60; // 2 hours in seconds
-document.getElementById('timer').dataset.seconds = initialTime;
-document.getElementById('timer').textContent = formatTime(initialTime);
-
-// Update the timer every second (1000 milliseconds)
-setInterval(updateTimer, 1000);
-
+});
 
 
 
@@ -238,22 +227,25 @@ function createPreviewContainer() {
 // random call
 
 
-document.querySelector('.skip-q').addEventListener('click', function(event) {
-    event.preventDefault();
+document.querySelector('.button-container').addEventListener('click', function(event) {
+    
+    if (event.target.classList.contains('skip-q')) {
+        event.preventDefault();  
+        event.stopPropagation();  
 
-    // Make a request to /seeQuestion
-    fetch('expert/seeQuestion')
-        .then(response => {
-            if (response.ok) {
-                // If the response is successful, update the page content
-                window.location.reload(); // Reload the page to get a new random question
-            } else {
-                console.error('Error fetching new question:', response.status);
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching new question:', error);
-        });
+        fetch('/expert/seeQuestion')
+            .then(response => {
+                if (response.ok) {
+                    
+                    window.location.reload();  
+                } else {
+                    console.error('Error fetching new question:', response.status);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching new question:', error);
+            });
+    }
 });
 
 
@@ -263,6 +255,39 @@ document.querySelector('.skip-q').addEventListener('click', function(event) {
     
     window.location.href = 'upload ans.html';
 }
+
+// Function to format the time in HH:MM:SS
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return [hours, minutes, remainingSeconds].map(unit => String(unit).padStart(2, '0')).join(':');
+}
+
+// Function to update the timer
+function updateTimer() {
+    const timerElement = document.getElementById('timer');
+    let time = parseInt(timerElement.dataset.seconds);
+
+    if (time > 0) {
+        time--; 
+        timerElement.dataset.seconds = time; 
+        timerElement.textContent = formatTime(time); 
+    } else {
+        
+        window.location.reload();
+    }
+}
+
+
+const initialTime = 2 * 60 * 60; // 2 hours in seconds
+document.getElementById('timer').dataset.seconds = initialTime;
+document.getElementById('timer').textContent = formatTime(initialTime);
+
+// Update the timer every second (1000 milliseconds)
+setInterval(updateTimer, 1000);
+
+
 
     </script>
 

@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Start-Answering</title>
+	<link rel="stylesheet" type="text/css" href="css/expert_css/expertDashboard.css"/>
+	<link rel="stylesheet" type="text/css" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+	
+ <header class="header">
+	<nav class="nav">
+		<a href="#" class="nav_logo">Study Sage</a>
+		<ul class="nav_items">
+			<li class="nav_item">
+				<a href="#" class="nav_link">Home</a>
+				<a href="/expert/seeQuestion" class="nav_link">Expert Q & A</a>
+				<a href="#" class="nav_link">My answers</a>
+			</li>
+		</ul>
+
+		<img src="icons/expertDashboard_icons/profile.jpg" alt="User Profile" class="user-pic" onclick="toggleMenu()">
+
+		<div class="sub-menu-wrap" id="subMenu">
+			<div class="sub-menu">
+				<div class="user-info">
+					<img src="icons/expertDashboard_icons/profile.jpg">
+				<h2>User</h2>
+					
+				</div>
+				<hr>
+	<a href="#" class="sub-menu-link">
+	<img src="icons/expertDashboard_icons/edit profile img.png">
+	<p>Edit Profile</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="icons/expertDashboard_icons/settings img.png">
+	<p>Settings & Privacy</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="icons/expertDashboard_icons/help and supporr img.png">
+	<p>Help & Support</p>
+	<span>></span>
+	</a>
+
+	<a href="/expert/logout" class="sub-menu-link">
+	<img src="icons/expertDashboard_icons/logout img.png">
+	<p>Logout</p>
+	<span>></span>
+	</a>
+			</div>    
+			
+		</div>
+		
+	</nav>
+	</header>
+
+	<script>
+		let subMenu = document.getElementById("subMenu");
+		function toggleMenu() {
+			subMenu.classList.toggle("open-menu");
+		}
+	</script>
+
+<div class="expert-wlcm">
+	<div>
+	<p class="para-1">Welcome, Expert!</p>
+	</div>
+		<div class="para-2">
+			<p class="single-large-line">Ensure you follow the Q&A Answering Guidelines to maintain a CF score of 80% or more. If you need help, reach us at StudySage.com</p>
+		</div>
+	</div>
+
+	<div class="start-answering">
+
+		<div>
+			<p class="exp-QA">Expert Q&A</p>
+			<p class="Q-tip">Quality tip:</p>
+		</div>
+		<div>
+			<p class="large-para">Students like reading text answers! Try typing out your<br>answers or add a short text summary in addition to the<br> image of your answer.</p>
+		 
+		</div>
+		</div>
+		<div>
+			<a href="/expert/seeQuestion" class="start-answering-link">
+				<button class="start-answering-btn">Start answering</button>
+			</a>
+		</div>
+
+<div class="stats">
+	<div>
+		<p class="my-stats-para">My Stats</p>
+	</div>
+	<div class="dropdown">
+      <select id="day" name="Today">
+        <option value="day">Today</option>
+        <option value="sat">Saturday</option>
+        <option value="sun">Sunday</option>
+        <option value="mon">Monday</option>
+        <option value="Tue">Tuesday</option>
+        <option value="wed">Wednesday</option>
+        <option value="thu">thursday</option>
+        <option value="fri">Friday</option>
+      </select>
+    </div>
+
+    <div>
+    	<p class="cf-score">CF Score: N/A</p>
+    	<p class="answered">Answered: 1</p>
+    	<p class="skipped">Skipped: 1</p>
+    </div>
+
+</div>
+
+</body>
+</html>

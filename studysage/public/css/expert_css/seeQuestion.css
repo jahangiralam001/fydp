@@ -298,6 +298,19 @@ option{
     }
 
 /* from here */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+
 .image-section {
 		position: absolute;
 		left: 55rem;

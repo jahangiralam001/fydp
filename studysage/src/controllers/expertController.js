@@ -30,7 +30,7 @@ const verifyLogin = async(req,res)=>{
             req.session.user_id = expertlogData._id;
             console.log(`User ${email} authenticated successfully as ${expertlogData.is_admin}`);
            
-            res.redirect("/expert/seeQuestion");
+            res.redirect("/expert/expertDashboard");
         }
 
       }
@@ -55,7 +55,7 @@ const verifyLogin = async(req,res)=>{
 
 const loadexDashboard = async(req,res)=>{
     try{
-        res.render('home');
+        res.render('expertDashboard');
 
     }catch(error){
         console.log(error.message);
@@ -66,7 +66,7 @@ const loadexDashboard = async(req,res)=>{
 const logout = async (req, res) => {
     try {
         req.session.destroy(() => {
-            res.clearCookie('connect.sid'); // Replace 'connect.sid' with your cookie name if different
+            res.clearCookie('connect.sid');
             res.redirect('/expert');
         });
     } catch (error) {

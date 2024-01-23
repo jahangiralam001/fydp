@@ -52,7 +52,7 @@ const noCache = (req, res, next) => {
 //controller_get
 expert_route.get('/',auth.isLogout, expertController.loadexLogin);
 expert_route.post('/',expertController.verifyLogin);
-expert_route.get('/home', auth.isLogin,expertController.loadexDashboard);
+expert_route.get('/expertDashboard', auth.isLogin,expertController.loadexDashboard);
 expert_route.get('/logout',auth.isLogin,expertController.logout);
 
 //controller_post_get
