@@ -10,6 +10,10 @@ const posted_qSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    university: {
+        type: String,
+        required: true,
+    },
     question: {
         type: String,
          

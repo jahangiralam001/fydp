@@ -1,0 +1,131 @@
+.header{
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: var(--box-shadow);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.left-section{
+	width: 100%;
+	max-width: 300px;
+	margin-left: 10px;
+	
+}
+.sg{
+	font-family: Arial;
+	font-size: 27px;
+	height: 42px;
+	width: 150px;
+	margin-left: 150px;
+	margin-top: 13px;
+	border-radius: 4px;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+}
+.sg:hover{
+	opacity: 0.3;
+}
+.A-I{
+	font-family: Arial;
+	font-size: 18px;
+	position: absolute;
+	top:230px;
+	left: 180px;
+}
+.pd{
+	font-family: Arial;
+	font-size: 17px;
+	position: absolute;
+	top:290px;
+	left: 180px;
+}
+.horizontal-line{
+	position: absolute;
+	border: 1px solid #333;
+    margin: 10px 0;
+    top: 330px;
+    left: 180px;
+    width: 300px;
+}
+.ed{
+	font-family: Arial;
+	font-size: 17px;
+	position: absolute;
+	top:290px;
+	left: 900px;
+}
+.profile-d{
+	font-family: Arial;
+	position: absolute;
+	top: 355px;
+	left: 180px;
+}
+.e{
+	font-family: Arial;
+	position: absolute;
+	top: 550px;
+	left: 180px;
+	width: 70px;
+	height: 25px;
+}
+.oopsbmm {
+  display: flex;
+  justify-content: space-between;
+  top: 80px;
+  position: absolute;
+  left: 140px;
+  padding: 20px;
+}
+
+.oopsbmm button {
+  margin-right: 70px;
+  height: 80px;
+  width: 100px; 
+  padding-top: 35px;
+  background-color: white;
+  border:none;
+  
+}
+
+.oopsbmm button:last-child {
+  margin-right: 0; 
+}
+.overview{
+	position: absolute;
+	top: 22px;
+	left: 33px;
+}
+.order{
+	position: absolute;
+	top: 25px;
+	left: 215px;
+}
+.profile{
+	position: absolute;
+	top: 29px;
+	left: 385px;
+}
+.security{
+	position: absolute;
+	top: 27px;
+	left: 555px;
+}
+.baksh{
+	position: absolute;
+	top: 25px;
+	left: 726px;
+}
+.My-devices{
+	position: absolute;
+	top: 22px;
+	left: 892px;
+}
+.My-courses{
+	position: absolute;
+	top: 21px;
+	left: 1070px;
+}
+
+

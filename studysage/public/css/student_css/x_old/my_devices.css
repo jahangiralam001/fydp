@@ -1,0 +1,173 @@
+.header{
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: var(--box-shadow);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.sg{
+	font-family: Arial;
+	font-size: 27px;
+	height: 42px;
+	width: 150px;
+	margin-left: 150px;
+	margin-top: 13px;
+	border-radius: 4px;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+}
+.sg:hover{
+	opacity: 0.3;
+}
+.oopsbmm {
+  display: flex;
+  justify-content: space-between;
+  top: 80px;
+  position: absolute;
+  left: 140px;
+  padding: 20px;
+}
+
+.oopsbmm button {
+  margin-right: 70px;
+  height: 80px;
+  width: 100px; 
+  padding-top: 35px;
+  background-color: white;
+  border:none;
+ }
+.oopsbmm button:last-child {
+  margin-right: 0; 
+}
+.overview{
+	position: absolute;
+	top: 22px;
+	left: 33px;
+}
+.order{
+	position: absolute;
+	top: 25px;
+	left: 215px;
+}
+.profile{
+	position: absolute;
+	top: 29px;
+	left: 385px;
+}
+.security{
+	position: absolute;
+	top: 27px;
+	left: 555px;
+}
+.baksh{
+	position: absolute;
+	top: 25px;
+	left: 726px;
+}
+.My-devices{
+	position: absolute;
+	top: 22px;
+	left: 892px;
+}
+.My-courses{
+	position: absolute;
+	top: 21px;
+	left: 1070px;
+}
+.MD{
+	position: absolute;
+	top: 230px;
+	left: 190px;
+	font-family: Arial;
+	font-size: 20px;
+}
+.welcome-msg{
+	position: absolute;
+	top: 300px;
+	left: 190px;
+	background-color:#F0F8FF;
+	width: 1020px;
+	padding: 20px;
+	height: 10px;
+	padding-top: 5px;
+	font-family: Arial;
+	padding-bottom: 40px;
+}
+.index {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: absolute;
+    top: 370px;
+    left: 175px;
+    
+}
+
+section {
+    margin-bottom: 0px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 1030px;
+
+}
+
+h2 {
+    font-size: 14px;
+    font-family: Arial;
+    margin: 0;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+li {
+    margin: 5px 0;
+}
+.horizontal-line{
+	position: absolute;
+	margin: 10px 0;
+    top: 720px;
+    left: 200px;
+    width: 1200px;
+    border: none; 
+  	height: 1px; 
+  	background-color: #ccc; 
+}
+.msg-2{
+	position: absolute;
+	top:680px;
+	left: 200px;
+	font-family: Arial;
+}
+.footer-msg{
+	position: absolute;
+	top: 750px;
+	left: 200px;
+	font-size: 13px;
+}
+.cydgphi{
+  display: flex;
+  justify-content: space-between;
+  top: 730px;
+  position: absolute;
+  left: 700px;
+  padding: 20px;
+}
+
+.cydgphi button {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 0px; 
+}
+
+.cydgphi button:last-child {
+  margin-right: 2px; 
+}

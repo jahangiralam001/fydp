@@ -1,5 +1,6 @@
 .header{
 	height: 70px;
+	width: 100rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -22,60 +23,66 @@
 	opacity: 0.3;
 }
 .oopsbmm {
-  display: flex;
-  justify-content: space-between;
-  top: 80px;
-  position: absolute;
-  left: 140px;
-  padding: 20px;
-}
-
-.oopsbmm button {
-  margin-right: 70px;
-  height: 80px;
-  width: 100px; 
-  padding-top: 35px;
-  background-color: white;
-  border:none;
- }
-.oopsbmm button:last-child {
-  margin-right: 0; 
-}
-.overview{
+	display: flex;
+	justify-content: space-between;
+	top: 80px;
 	position: absolute;
-	top: 22px;
-	left: 33px;
-}
-.order{
-	position: absolute;
-	top: 25px;
-	left: 215px;
-}
-.profile{
-	position: absolute;
-	top: 29px;
-	left: 385px;
-}
-.security{
-	position: absolute;
-	top: 27px;
-	left: 555px;
-}
-.baksh{
-	position: absolute;
-	top: 25px;
-	left: 726px;
-}
-.My-devices{
-	position: absolute;
-	top: 22px;
-	left: 892px;
-}
-.My-courses{
-	position: absolute;
-	top: 21px;
-	left: 1070px;
-}
+	left: 140px;
+	padding: 20px;
+	column-gap: 3rem;
+	cursor: pointer;
+  }
+  
+  .oopsbmm button {
+	margin-right: 70px;
+	height: 80px;
+	width: 100px; 
+	padding-top: 35px;
+	background-color: white;
+	border:none;
+	cursor: pointer;
+	
+  }
+  
+  .oopsbmm button:last-child {
+	margin-right: 0; 
+  }
+  .overview{
+	  position: absolute;
+	  top: 22px;
+	  left: 33px;
+  }
+  .order{
+	  position: absolute;
+	  top: 25px;
+	  left: 12.1rem;
+  }
+  .profile{
+	  position: absolute;
+	  top: 29px;
+	  left: 21.5rem;
+  }
+  .security{
+	  position: absolute;
+	  top: 27px;
+	  left: 30.5rem;
+  }
+  .baksh{
+	  position: absolute;
+	  top: 25px;
+	  left: 40rem;
+  }
+  .My-devices{
+	  position: absolute;
+	  top: 22px;
+	  left: 48.5rem;
+  }
+  .My-courses{
+	  position: absolute;
+	  top: 21px;
+	  left: 58rem;
+  }
+	
 .MD{
 	position: absolute;
 	top: 230px;

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Account</title>
+	<link rel="stylesheet" type="text/css" href="css/student_css/account_style.css">
+</head>
+<body>
+
+<div class="header">
+	<div class="left-section">
+		<a href="Dashboard"><button class="sg">
+			Study sage
+		</button></a> 
+   </div>
+
+<div>
+	<p class="A-I">Account Information</p>
+</div>
+<div>
+	<p class="pd">Personal Details</p>
+	<hr class="horizontal-line">
+</div>
+<div>
+	<p class="ed">Educational Details</p>
+	<hr class="horizontal-line" 
+	style='position: absolute;
+	border: 1px solid #333;
+    margin: 10px 0;
+    top: 330px;
+    left: 900px;
+    width: 300px;'>
+</div>
+    <div class="profile-d">
+		<h3>Basic info</h3>
+		  <p>Name: {{sp_data.name}}</p>
+		  <p>Email: {{sp_data.email}}</p>
+		  <p>Joined : {{sp_data.date}}</p>
+		   
+	</div>
+
+
+	<div>
+		<button class="e">Edit</button>
+	</div>
+        {{>student_nav}}
+</body>
+</html>
+
+{{!-- 
+    <button>Overview<img class="overview" src="icons\overview.jpg" width="77" height="45" alt="search_img"></button>
+    <button>Orders<img class="order" src="icons\order.png" width="48" height="40" alt="search_img"></button>
+    <button>Profile info<img class="profile" src="icons\profile.jpg" width="48" height="40" alt="search_img"></button>
+    <button>Security<img class="security" src="icons\lock.png" width="48" height="40" alt="search_img"></button>
+    <button>Bkash<img class="baksh" src="icons\credit-card.png" width="46" height="45" alt="search_img"></button>
+    <button>My devices<img class="My-devices" src="icons\my devices.jpg" width="58" height="45" alt="search_img"></button>
+    <button>My courses<img class="My-courses" src="icons\my courses.png" width="56" height="43" alt="search_img"></button> --}}

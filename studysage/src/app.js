@@ -357,6 +357,7 @@ app.post("/submit_question", upload.single("file"), async (req, res) => {
     const postedQ = new PostedQuestion({
       student_id: currentUser._id,
       sub: req.body.sub,
+      university: req.body.university,
       question: req.body.question,
       file: {
         data: fileData,

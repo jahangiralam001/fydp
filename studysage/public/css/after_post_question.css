@@ -239,6 +239,12 @@
 	border-width: 1px;
 	
 }
+.image-textarea{
+    max-width: 100%; /* Allow the image to take the full width of the container */
+    height: auto;    /* Maintain the image aspect ratio */
+}
+
+
 .std{
 	position: absolute;
 	font-family: Arial;

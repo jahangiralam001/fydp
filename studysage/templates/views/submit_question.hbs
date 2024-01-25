@@ -10,27 +10,74 @@
 	
 		<!-- font awesome cdn link  -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-	<!-- Include stylesheet -->
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
-<!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 		<!-- custom css file link  -->
 		<link rel="stylesheet" href="css/submit_question.css">
 	
 	</head>
 <body>
-	<div class="header">
-	<div class="left-section">
-		<button class="Go_back_button">
-			Go back
-		</button>
-   </div>
-		</div>
-{{!-- sidebar for all --}}
+	<header class="header">
+    <nav class="nav">
+         <button class="go-back-btn" onclick="goBack();">
+    Go back
+</button>
+
+       <div class="nav_item">
+
+       <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img class="user-profile-icons\user.jpg">
+                <h2>User</h2>
+                    
+                </div>
+                <hr>
+    <a href="#" class="sub-menu-link">
+    <img src="user-profile-icons\edit profile img.png">
+    <p>Edit Profile</p>
+    <span></span>
+    </a>
+
+    <a href="#" class="sub-menu-link">
+    <img src="user-profile-icons\settings img.png">
+    <p>Settings & Privacy</p>
+    <span></span>
+    </a>
+
+    <a href="#" class="sub-menu-link">
+    <img src="user-profile-icons\help and supporr img.png">
+    <p>Help & Support</p>
+    <span></span>
+    </a>
+
+    <a href="#" class="sub-menu-link">
+    <img src="user-profile-icons\logout img.png">
+    <p>Logout</p>
+    <span></span>
+    </a>
+      </div>
+        </div> 
+        <div>
+        <img src="user-profile-icons\user.jpg" alt="User Profile" class="user-pic" onclick="toggleMenu()">
+    </div>
+        
+    </nav>
+    </header>
+
+    <script>
+        let subMenu = document.getElementById("subMenu");
+        function toggleMenu() {
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
+
+ {{!-- sidebar for all --}}
 		 {{>sidebar}}
 {{!-- sidebar for all --}}
+
+  
+
  <div class="paragraphs">
  	<p class="AaE">Ask an Expert</p>
  	<p class="sub">Get step by step homework help in just 30 miniutes!</p>
@@ -39,104 +86,47 @@
  	<p class="sub_sub_sub_sub">You can drag and drop or upload images</p>
  </div>
 
-  <div class="text-editor">
+  <div>
      <form action="/submit_question" method="POST" enctype="multipart/form-data">
-     
-     <input class="attach_file" type="file" name="file">
 
         {{!-- <div id="editor" name="txtQuestion"></div> --}}
         <textarea class="copypaste_box" name="question" placeholder="Write Your Question Here..." ></textarea>
+        <input class="attach_file" type="file" name="file" id="fileInput">
+        <label for="fileInput">Attach Your Question Here</label>
 
          
     	<p class="step-2-of-2">Step 2 of 2: Select a subject</p>
 
       <div class="radio_input">
 
-        <input type="radio" id="cse" name="sub" value="CSE" required>
+        <div><input type="radio" id="cse" name="sub" value="CSE" required>
         <label for="cse">CSE</label><br>
        <input type="radio" id="bba" name="sub" value="BBA" required>
        <label for="bba">BBA</label><br>
        <input type="radio" id="math" name="sub" value="MATH" required>
        <label for="math">MATH</label>
+       </div>
+
+      <div><input type="radio" id="uiu" name="university" value="UIU" required>
+      <label for="uiu">UIU</label><br>
+       <input type="radio" id="brac" name="university" value="BRAC" required>
+      <label for="brac">BRAC</label><br>
+       <input type="radio" id="nsu" name="university" value="NSU" required>
+      <label for="nsu">NSU</label><br>
+       </div>
       </div>
     
     
-   <button class="post-question-button" type="submit">Post question</button>
+   <button class="post-question-button" type="submit">Continue</button>
     
      </form>
 	      
     </div>
-
-{{!-- 
-    <div>
-    	<button class="continue-button">Continue</button>
-    </div>
-
- --}}
-
-
-
-
-
-
-
-
-
-	
-	<script>
-var quill = new Quill('#editor', {
-  theme: 'snow'
-});
-
-// Add a custom handler for the image upload
-function selectLocalImage() {
-  const input = document.createElement('input');
-  input.setAttribute('type', 'file');
-  input.click();
-
-  // Listen upload local image and save to server
-  input.onchange = () => {
-    const file = input.files[0];
-
-    // file type is only image.
-    if (/^image\//.test(file.type)) {
-      saveToServer(file);
-    } else {
-      console.warn('You could only upload images.');
-    }
-  };
+<script>
+function goBack() {
+    window.history.back();
 }
-
-// Save images to server
-function saveToServer(file) {
-  const fd = new FormData();
-  fd.append('image', file);
-
-  // Your API endpoint or server-side script to save the image
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', '/upload/image', true);
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      // This is where you handle the URL of the image
-      const url = JSON.parse(xhr.responseText).url;
-      insertToEditor(url);
-    }
-  };
-  xhr.send(fd);
-}
-
-// Insert the image URL into the editor
-function insertToEditor(url) {
-  // Get the range where the image is to be inserted
-  const range = quill.getSelection();
-  quill.insertEmbed(range.index, 'image', url);
-}
-
-// Add the image handler to the Quill toolbar
-quill.getModule('toolbar').addHandler('image', selectLocalImage);
-
 </script>
-
 
 </body>
 </html>

@@ -19,29 +19,32 @@
 
 <div class="header">
 	<div class="left-section">
-		<button class="Home_button">
+		 <a href="/Dashboard" style="text-decoration: none;"><button class="Home_button">
 			Home
-		</button>
+		</button></a>
    </div>
 	<div class="middle-section"><input class="search-bar"type="text" placeholder="Find books or homework solutions">
 	<button class="search-button">
 
 		<img class="search_icon" src="icons\search.png" width="30" height="30" alt="search_img">
 	</button>
+
+	<div class="profile-logout-btn">
 	<a href="student_profile"><button>Profile</button></a>
 	<form action="/logout?_method=DELETE" method="post">
 	<button type="submit">Logout</button>
 	</form>
-		
-    </div>
+	</div>
+	</div>
 </div>
-  {{!-- sidebar for all --}}
+
+ {{!-- sidebar for all --}}
 		 {{>sidebar}}
 {{!-- sidebar for all --}}
 
+
  <div class="card">	
- 	
- 	   <input class="Post-a-question-box" type="text" name="copypaste" placeholder="For example: what is gpt3?">
+ 	<input class="Post-a-question-box" type="text" name="copypaste" placeholder="For example: what is gpt3?">
 <div>
 	<p class="post"> {{name}}Post a question here</p>
 </div>
@@ -57,47 +60,26 @@
 </div>
 </div>
 
-<div class="right_container">
+<div class="my-courses-container">
 	<div>
-		<p class="paragraph">My Courses</p>
-	
-	<div>
-		<button class="one">Computer organization</button>
-	
-	<div>
-		<button class="two">Computer organization</button>
-	
-	<div>
+		<p class="para-1">My Courses</p>
+		<button>Computer organization</button>
+		<button>Computer organization</button>
 		<button class="three">+Add a course</button>
 	</div>
 </div>
-</div>
-</div>
-</div>
 
- <div class="colored-box">
- 	<div>
- 		<p class="pbu">Pick back up</p>
- 	</div>
-    <div>
-    	<button class="upper-part">Expert question and answer</button>
-    </div>
-    <div>
-    	<button class="lower-part">jhhjsbhcbnxxnxn<br>
-    	nbbchdbhdbhdbdhbhd</button>
-    </div>
-  </div>
-
-
- <div class="second-colored-box">
-     <div>
-    	<button class="up-part">Textbook solutions</button>
-    </div>
-    <div>
-    	<button class="lo-part">jhhjsbhcbnxxnxn<br>
-    	nbbchdbhdbhdbdhbhd</button>
-    </div>
-     </div>
+<div class="two-color-box">
+	<p class="para-one">Pick back up</p>
+	<div class="div1-div-2">
+	<div class="div-1">
+		<p>Lorem ipsum</p>
+	</div>
+	<div class="div-2">
+		<p>Lorem ipsummmm</p>
+		</div>
+	</div>
+</div>
 
 <div class="container-four">
 		<div>
@@ -123,46 +105,28 @@
   <div><button class="hi">Health information...</button></div>
   <div><button class="gp">General Physics W...</button></div>
 
-  <div class="third-colored-box" style="bottom: 100px;">
- 	
-    <div>
-    	<button class="upp-part">Expert question and answer</button>
-    </div>
-    <div>
-    	<button class="low-part">jhhjsbhcbnxxnxn<br>
-    	nbbchdbhdbhdbdhbhd</button>
-    </div>
-  </div>
-   <div class="fourth-colored-box" style="bottom: 100px;">
- 	
-    <div>
-    	<button class="u-part">Expert question and answer</button>
-    </div>
-    <div>
-    	<button class="l-part">jhhjsbhcbnxxnxn<br>
-    	nbbchdbhdbhdbdhbhd</button>
-    </div>
-  </div>
-  <div class="fifth-colored-box" style="bottom: 100px;">
- 	
-    <div>
-    	<button class="u-p">Expert question and answer</button>
-    </div>
-    <div>
-    	<button class="l-p">jhhjsbhcbnxxnxn<br>
-    	nbbchdbhdbhdbdhbhd</button>
-    </div>
-  </div>
-  <div class="sixth-colored-box" style="bottom: 100px;">
- 	
-    <div>
-    	<button class="up-p">Expert question and answer</button>
-    </div>
-    <div>
-    	<button class="lo-p">jhhjsbhcbnxxnxn<br>
-    	nbbchdbhdbhdbdhbhd</button>
-    </div>
-  </div>
+<div class="four-color-box">
+	<div class="box1-box-2">
+	<div class="box-1">
+		<p>Lorem ipsum</p>
+	</div>
+	<div class="box-2">
+		<p>Lorem ipsummmm</p>
+		</div>
+	</div>
+</div>
+
+<div class="box-pack-3">
+	<div class="boxone-boxtwo">
+	<div class="boxone">
+		<p>Lorem ipsum</p>
+	</div>
+	<div class="boxtwo">
+		<p>Lorem ipsummmm</p>
+		</div>
+	</div>
+</div>
+
   <div>
   	<button class="mo">Manage Orders</button>
   </div>

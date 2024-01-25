@@ -5,7 +5,7 @@
 
 
 .header {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -180,190 +180,148 @@
 }
 
 .sidebar{
-	background-color: #FAF0E6;
-	color: white;
 	position: fixed;
 	bottom: 0;
-	left: 7px;
+	left: 0px;
 	top: 0px;
+	width: 220px;
+	background-color: rgb(200, 194, 241);
+}
+.all-btn{
+	margin-top: 5rem;
+}
+.sidebar
+button{
+	margin: -0.5rem;
+	height: 35px;
 	width: 200px;
-	box-shadow: var(--box-shadow);
+	border: none;
+	font-size: 17.5px;
+	padding-top: 2rem;
+	cursor: pointer;
+	display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 39px;
+	background-color: rgb(200, 194, 241);
+}
+.sidebar
+button:hover{
+	opacity: 0.3;
+}
+.horizontal-line{
+	width: 100%;
+}
+/*.life-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed 
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed 
+    font-size: 16px;
+}
 
+.life-button img {
+    width: 37px; /* Adjust the width of the image as needed 
+    height: 37px;/* Adjust the height of the image as needed 
+}*/
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
 }
-.Home {
-    
-    top: 5rem; 
+.home img {
+    width: 21px; /* Adjust the width of the image as needed */
+    height: 21px;/* Adjust the height of the image as needed */
 }
-@media only screen and (max-width: 768px) {
-    .Home {
-        /* Adjust styles for smaller screens */
-        width: 80%; /* Adjust the width for smaller screens */
-        bottom: 10px; /* Adjust the bottom value for smaller screens */
-    }
+.study-tools{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
 }
-
-.study-sage{
-	font-family: Arial;
-	padding: 20px;
-	padding-left: 40px;
-	padding-top: 40px;
-	font-weight: bold; 
-	font-size: 20px;
-	background-color: #FAF0E6;
-	color: black;
+.study-tools img {
+    width: 24px; /* Adjust the width of the image as needed */
+    height: 24px;/* Adjust the height of the image as needed */
 }
-.Home{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
+.post-q-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+	padding-left: 2.1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.post-q-btn-img img {
+    width: 21px; /* Adjust the width of the image as needed */
+    height: 21px;/* Adjust the height of the image as needed */
+}
+.ai-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.ai-btn-img img {
+    width: 30px; /* Adjust the width of the image as needed */
+    height: 30px;/* Adjust the height of the image as needed */
+}
+.my-c-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.my-c-btn-img img {
+    width: 22px; /* Adjust the width of the image as needed */
+    height: 22px;/* Adjust the height of the image as needed */
+}
+.my-books-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.my-books-btn-img img {
+    width: 27px; /* Adjust the width of the image as needed */
+    height: 27px;/* Adjust the height of the image as needed */
+}
+.subscribe{
+	height: 100px;
 	width: 100px;
-	left: 45px;
-	bottom: 570px;
-	position: absolute;
-	border: none;
-	cursor: pointer;
-	background-color: #FAF0E6;
-	color: black;
-}
-.Home:hover{
-	opacity: 0.3;
-}
-.Study-tools{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 100px;
-	left: 45px;
-	bottom: 490px;
-	position: absolute;
-	background-color: #FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.Study-tools:hover{
-	opacity: 0.3;
-}
-.Post-a-question{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 404px;
-	position: absolute;
-	background-color: #FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.Post-a-question:hover{
-	opacity: 0.3;
-}
-.AI-Expert{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 360px;
-	position: absolute;
-	background-color: #FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.AI-Expert:hover{
-	opacity: 0.3;
-}
-.My-Courses{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 270px;
-	position: absolute;
-	background-color: #FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.My-Courses:hover{
-	opacity: 0.3;
-}
-.My-books{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 170px;
-	position: absolute;
-	background-color: #FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.My-books:hover{
-	opacity: 0.3;
-}
-.career{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 70px;
-	position: absolute;
-	background-color: #FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.career:hover{
-	opacity: 0.3;
-}
-.Life{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 30px;
-	position: absolute;
-	background-color: #FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.Life:hover{
-	opacity: 0.3;
-}
-.Q{
-	position: absolute;
-	top:150px;
-	left: 530px;
-	font-family: Arial;
-	font-weight: bold;
-	font-size: 19px;
-}
-.Q_btn{
-	position: absolute;
-	height: 1000px;
-	top: 200px;
-	bottom: 10px;
-	left: 500px;
-	width: 500px;
-	background-color: white;
-	border-style: solid;
-	border-color: rgb(192,192,192);
-	text-align: justify;
-	padding-right: 30px;
-	padding-left: 30px;
-	padding-bottom: 700px;
-	border-width: 1px;
-	
 }
 .std{
 	position: absolute;
@@ -371,7 +329,7 @@
 	font-weight: bold;
 	bottom: 200px;
 	left: 532px;
-	color: #20b2aa;
+	color: rgb(200, 194, 241);
 }
 .EA{
 	position: absolute;
@@ -480,7 +438,7 @@
     left: 450px;
     height: 148vh;
     width: 550px;
-    border: solid 1px #20b2aa;
+    border: solid 1px #ccc;
     top: 150px; /* Adjust the top position as needed */
 }
 .panel-body {
@@ -493,13 +451,7 @@
     padding: 0;     
     box-sizing: border-box;
 }
-textarea {
-    height: 200px; 
-    width: 100%;   
-    margin: 0;      
-    padding: 0;     
-    box-sizing: border-box; 
-}
+
 .std {
     position: absolute;
     font-family: Arial;
@@ -507,7 +459,7 @@ textarea {
     top: 18rem;
     left: 27%;
     transform: translateX(-50%);
-    color: #20b2aa;
+    color: rgb(161, 150, 234);
 }
 
 .EA {
@@ -521,14 +473,11 @@ textarea {
 }
 
 .answer {
-    position: absolute;
     font-family: Arial;
-    top: 25rem;
-    left: 35%;
-    transform: translateX(-50%);
-    width: 50%; /* Adjust the width as needed */
-     /* Display ellipsis (...) for overflow text */
-    font-size: 13px;
+	position: absolute;
+	font-size: 14.5px;
+	top: 25rem;
+    left: 10.5%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -540,59 +489,40 @@ textarea {
         text-align: center;
     }
 }
+
 .sbs{
 	font-family: Arial;
 	position: absolute;
 	font-weight: bold;
-	top: 30rem;
+	font-size: 20px;
+	top: 29rem;
     left: 10%;
 }
-.index {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    position: absolute;
-    top: 33rem;
-    left: 5%;
-    display: flex; /* Allow items to wrap to the next line on smaller screens */
+.show-exp-ans{
+	background-color: white;
+    margin-top: 32rem;
+    margin-left: 3.5rem;
+    height: 200px;
+    width: 450px;
+    border: solid 1px #20b2aa;
+  /* Center the text horizontally */
+}
+.show-exp-ans
+p{
+	margin-top: 1rem;
+	margin-left: 5.5rem;
+
 }
 
-section {
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
+.idea{
+	height: 52px;
+	width: 50px;
+	margin-left: 12rem;
+	margin-top: 3rem;
+	
+    
 }
 
-h2 {
-    font-size: 14px;
-    font-family: Arial;
-    margin: 0;
-}
-
-ul {
-    list-style: disc;
-    padding-left: 20px;
-}
-
-li {
-    margin: 5px 0;
-}
-
-@media only screen and (max-width: 768px) {
-    .index {
-         /* Stack items vertically on smaller screens */
-        align-items: center; /* Center items in the column */
-        left: 50%; /* Center the column horizontally */
-        transform: translateX(-50%);
-    }
-}
-@media only screen and (max-width: 768px) {
-    .sbs {
-        top: /* Adjust the top value for smaller screens */;
-        left: 50%; /* Center the column horizontally */
-        transform: translateX(-50%);
-    }
-}
 
 .card4 {
     top: 61.2rem;
@@ -604,7 +534,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Adjust the space between text and buttons */
-    color: #20b2aa;
+    color: rgb(161, 150, 234);
     
     
 }

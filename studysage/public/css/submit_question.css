@@ -1,155 +1,262 @@
+.header{
+	position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 10px 20px;
+}
+.go-back-btn{
+	position: absolute;
+	left: 35rem;
+	top: 1rem;
+	cursor: pointer;
+	background-color: #fff;
+	border-radius: 50px;
+	border: none;
+	font-size: 20px;
+	height: 50px;
+	width: 100px;
+}
+.nav{
+	max-width: 1100px;
+	width: 100%;
+	margin: 0 auto;
+}
+.nav,
+.nav_item{
+	display: flex-end;
+	height: 100%;
+	justify-content: space-between;
+
+}
+.nav_link{
+	 text-decoration: none; 
+        color: #000;
+}
+.nav_link:hover{ 
+        color: #000;
+
+}
+.user-pic{
+	width: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	top: 3rem;
+	margin-left: 70rem;
+
+}
+.sub-menu-wrap{
+	position: absolute;
+	top: 100%;
+	right: 10%;
+	width: 260px;
+	max-height: 10px;
+	overflow: hidden;
+	transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu{
+	max-height: 350px;
+}
+
+.sub-menu{
+	background: #fff;
+	padding: 20px;
+	margin: 10px;
+}
+.user-info{
+	display: flex;
+	align-items: center;
+	height: 2%;
+	width: 2%;
+}
+.user-info h3{
+	font-weight: 500;
+}
+.user-info img {
+   width: 48px;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+.sub-menu hr{
+	border: 0;
+	height: 1px;
+	width: 100%;
+	background: #ccc;
+	margin: 2px 0;
+}
+.sub-menu-link{
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #525252;
+	margin: 2px 0;
+}
+.sub-menu-link p{
+	width: 100%;
+}
+.sub-menu-link img{
+	width: 40px;
+	background: #fff;
+	border-radius: 50%;
+	padding: 8px;
+	margin-right: 15px;
+}
+.sub-menu-link span{
+	font-size: 10px;
+	transition: transform 0.5s;
+}
+.sub-menu-link:hover span{
+	transform: translate(5px);
+}
+
+.sub-menu-link:hover p{
+	font-weight: 600;
+}
 .sidebar{
-	background-color: #FAF0E6;
 	position: fixed;
 	bottom: 0;
-	left: 7px;
+	left: 0px;
 	top: 0px;
+	width: 220px;
+	background-color: rgb(200, 194, 241);
+}
+.all-btn{
+	margin-top: 5rem;
+}
+.sidebar
+button{
+	margin: -0.5rem;
+	height: 35px;
 	width: 200px;
-	box-shadow: var(--box-shadow);
+	border: none;
+	font-size: 17.5px;
+	padding-top: 2rem;
+	cursor: pointer;
+	display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 39px;
+	background-color: rgb(200, 194, 241);
+}
+.sidebar
+button:hover{
+	opacity: 0.3;
+}
+.horizontal-line{
+	width: 100%;
+}
+/*.life-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed 
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed 
+    font-size: 16px;
+}
 
+.life-button img {
+    width: 37px; /* Adjust the width of the image as needed 
+    height: 37px;/* Adjust the height of the image as needed 
+}*/
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
 }
-.study-sage{
-	font-family: Arial;
-	padding: 20px;
-	padding-left: 40px;
-	padding-top: 40px;
-	font-weight: bold; 
-	font-size: 20px;
+.home img {
+    width: 21px; /* Adjust the width of the image as needed */
+    height: 21px;/* Adjust the height of the image as needed */
 }
-#editor {
-    height: 300px; /* Adjust as needed */
-    background-color: white;
-    border: 1px solid #ccc;
-    font-family: Arial, sans-serif;
+.study-tools{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
 }
-
-.Home{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
+.study-tools img {
+    width: 24px; /* Adjust the width of the image as needed */
+    height: 24px;/* Adjust the height of the image as needed */
+}
+.post-q-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+	padding-left: 2.1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.post-q-btn-img img {
+    width: 21px; /* Adjust the width of the image as needed */
+    height: 21px;/* Adjust the height of the image as needed */
+}
+.ai-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.ai-btn-img img {
+    width: 30px; /* Adjust the width of the image as needed */
+    height: 30px;/* Adjust the height of the image as needed */
+}
+.my-c-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.my-c-btn-img img {
+    width: 22px; /* Adjust the width of the image as needed */
+    height: 22px;/* Adjust the height of the image as needed */
+}
+.my-books-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.my-books-btn-img img {
+    width: 27px; /* Adjust the width of the image as needed */
+    height: 27px;/* Adjust the height of the image as needed */
+}
+.subscribe{
+	height: 100px;
 	width: 100px;
-	left: 45px;
-	bottom: 570px;
-	position: absolute;
-	background-color:#FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.Home:hover{
-	opacity: 0.3;
-}
-.Study-tools{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 100px;
-	left: 45px;
-	bottom: 490px;
-	position: absolute;
-	background-color:#FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.Study-tools:hover{
-	opacity: 0.3;
-}
-.Post-a-question{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 404px;
-	position: absolute;
-	background-color:#FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.Post-a-question:hover{
-	opacity: 0.3;
-}
-.AI-Expert{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 360px;
-	position: absolute;
-	background-color:#FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.AI-Expert:hover{
-	opacity: 0.3;
-}
-.My-Courses{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 270px;
-	position: absolute;
-	background-color:#FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.My-Courses:hover{
-	opacity: 0.3;
-}
-.My-books{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 170px;
-	position: absolute;
-	background-color:#FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.My-books:hover{
-	opacity: 0.3;
-}
-.career{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 70px;
-	position: absolute;
-	background-color:#FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.career:hover{
-	opacity: 0.3;
-}
-.Life{
-	font-family: Arial;
-	font-size: 17px;
-	height: 50px;
-	width: 150px;
-	left: 28px;
-	bottom: 30px;
-	position: absolute;
-	background-color:#FAF0E6;
-	color: black;
-	border: none;
-	cursor: pointer;
-}
-.Life:hover{
-	opacity: 0.3;
 }
 .Go_back_button{
 	margin-left: 500px;
@@ -167,6 +274,7 @@
 	top: 120px;
 	font-weight: bold;
 }
+
 .sub{
 	font-family: Arial;
 	font-size: 14px;
@@ -174,6 +282,13 @@
 	left: 500px;
 	top: 190px;
 	font-weight: lighter;
+}
+@media only screen and (max-width: 768px){
+
+	.sub {
+     margin-top: 5rem; 
+	   
+	}
 }
 .sub_sub{
 	font-family: Arial;
@@ -183,6 +298,13 @@
 	top: 230px;
 	font-weight: lighter;
 }
+@media only screen and (max-width: 768px){
+
+	.sub_sub {
+     margin-top: 10rem; 
+	   
+	}
+}
 .sub_sub_sub{
 	font-family: Arial;
 	font-size: 22px;
@@ -190,6 +312,13 @@
 	left: 500px;
 	top: 310px;
 	font-weight: bold;
+}
+@media only screen and (max-width: 768px){
+
+	.sub_sub_sub {
+     margin-top: 25rem; 
+	   
+	}
 }
 .sub_sub_sub_sub{
 	font-family: Arial;
@@ -199,68 +328,154 @@
 	top:370px;
 	font-weight: lighter;
 }
-.text-editor {
-    max-width: 1200px;
-    margin: 20px auto;
-    left: 500px;
-    top: 420px;
+@media only screen and (max-width: 768px){
+
+	.sub_sub_sub_sub {
+     margin-top: 29rem; 
+	   
+	}
+}
+textarea {
+	height: 200px; 
+	width: 52%;   
+	margin: 0;      
+	padding: 0;
+	margin-top: 23rem; 
+	padding-left: 2rem;
+	padding-top: 2rem;
+	margin-left: 31rem; 
+}
+@media only screen and (max-width: 768px){
+
+	textarea {
+     margin-top: 60rem; 
+	   
+	}
+}
+.attach_file {
+    margin-top: 10px; /* Adjust the margin-top as needed */
+    width: 180px;
+    margin-left: 32rem;
+	 /* Adjust the margin-left to align with the textarea */
+}
+.attach_file label {
+    margin-left: 10px;
+}
+::placeholder{
+	font-size: 18px;
+}
+.post-question-button{
+	height: 2rem; 
+    width: 30%; 
+    max-width: 150px; 
     position: absolute;
-    height: 250px;
-    width: 900px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.toolbar {
-    background-color: #f0f0f0;
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.editor {
-    padding: 10px;
-}
-
-.image-drop-zone {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
+    top: 57rem;
+    left: 70rem;  
+    border-radius: 50px;
+    border: none;
     cursor: pointer;
+    font-size: 1rem; 
+	background-color: #f8fafc;
+	border-color: rgb(130, 129, 129);
 }
-.continue-button{
-	position: absolute;
-	top: 710px;
-	left: 1250px;
-	height: 25px;
-	width: 100px;
-	border-radius: 50px;
-	border:none;
+.post-question-button:hover{
+	background-color: rgb(200, 194, 241);
+	color: white;
 }
+@media only screen and (max-width: 768px){
+
+	.post-question-button {
+     margin-top: 45rem; 
+	 margin-left: -10rem;
+	 
+
+	}
+}
+
 .step-2-of-2{
 	position: absolute;
-	top: 400px;
-	left: 10px;
+	top: 46.5rem;
+	left: 32rem;
 	font-weight: bold;
 	font-size: 20px;
 	font-family: Arial;
 }
+@media only screen and (max-width: 768px){
+
+	.step-2-of-2 {
+     margin-top: 36.5rem; 
+	   
+	}
+}
 .radio_input{
 	position: absolute;
-	top: 470px;
-	left: 10px;
+	top: 51rem;
+	left: 32rem;
 	font-family: sans-serif;
 	font-size: 20px;
+	column-gap: 7rem;
 	font-family: Arial;
+	display: flex;
+	justify-content: space-between;
 }
-.post-question-button{
-	height: 30px;
-	width: 150px;
-	position: absolute;
-	margin-top: 250px;
-	
-	left: 750px;
+@media only screen and (max-width: 768px){
+
+	.radio_input {
+     margin-top: 37rem; 
+	   
+	}
+}
+
+
+/*.CSE-BBA-MATH{
+	margin-left: 10rem;
+	height: 400px;
+}
+@media only screen and (max-width: 768px){
+
+	.CSE-BBA-MATH {
+     margin-top: 30rem; 
+	 margin-left: 33rem;
+	   
+	}
+}
+.sub-btn{
+	display: flex;
+	justify-content: space-around;
+	/*column wise decreasing spcae between divs
+	margin: 17rem;
+}
+.sub-btn
+button{
+	margin: .3rem;
+	height: 44px;
+	width: 200px;
 	border-radius: 50px;
-	border:none;
+	background-color: white;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	cursor: pointer;
 }
+.sub-btn
+p{
+	padding-left: 1.5rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+}
+.post-question{
+	width: 100px;
+	height: 50px;
+}
+.post-question
+button{
+	position: absolute;
+	height: 50px;
+	margin-left: 58rem;
+	margin-top: -14rem;
+	height: 2rem; 
+    width: 10%;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+    font-size: 1rem;
+}*/
