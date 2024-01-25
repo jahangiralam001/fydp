@@ -92,7 +92,7 @@
 	<p class="sub">your toughest questions solved step by step</p>
 </div>
 <div>
-	<button class="continue-to-post-button">continue to post</button>
+	 <a href="/submit_question" style="text-decoration: none;"> <button class="continue-to-post-button">Continue to Post</button></a>
 	
 </div>
 </div>
@@ -107,15 +107,14 @@
         <p class="sub">your toughest questions solved step by step</p>
     </div>
     <div>
-        <button class="continue-to-post-button">Continue to Post</button>
+       <a href="/submit_question" style="text-decoration: none;"> <button class="continue-to-post-button">Ask to AI</button></a>
     </div>
 </div>
 
 
 <div class="card card3">
      <div class="panel-body">
-    {{!-- <textarea name="content" id="content" class="form-control ckeditor" style="text-decoration: none;"> {{question_data.question}}</textarea> --}}
-    {{!-- <p>Question: {{question_data.question}}</p> --}}
+
     {{#if question_data.question}}
     <p>Question: {{question_data.question}}</p>
 {{/if}}
@@ -131,9 +130,7 @@
 
 </div>
 
-<div>
- 	<p class="std">Show transcribed data</p>
- </div>
+ 
  <div>
  	<p class=EA>Expert Answer</p>
  </div>

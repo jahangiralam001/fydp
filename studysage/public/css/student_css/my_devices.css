@@ -7,6 +7,35 @@
 	box-shadow: var(--box-shadow);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
 }
+/* Other styles remain the same */
+
+.device-entry {
+	border-left: #ffffff;
+	border-right: #ffffff;
+	padding: 11px;
+	position: relative; /* Ensure positioning context for absolute children */
+	display: flex;
+	align-items: center;
+  }
+  
+  .device-entry h2 {
+	/* Your device name, should stay as is */
+	flex: 1;
+	margin: 0;
+  }
+  
+  .device-info {
+	/* Adjust this value to be aligned with your "Last accessed" header */
+	position: absolute;
+	left: 450px; /* Match the header position */
+	bottom: 1px; /* Align with the bottom of the device entry */
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	opacity: 0.7;
+	white-space: nowrap;
+  }
+  
+  
 .sg{
 	font-family: Arial;
 	font-size: 27px;

@@ -15,13 +15,14 @@ const session = require("express-session")
 const methodOverride = require("method-override")
 const { promisify } = require("util");
 const nodemailer = require("nodemailer");
-
+const useragent = require('express-useragent');
+const { format } = require('date-fns');
 //ALL the DATABASE
 require("./db/conn");
 const Test = require("./models/subQwithmail");
 const RegisterUser = require("./models/registerUser.js");
 const PostedQuestion = require("./models/postQuestion.js");
-
+const deviceinfo = require("./models/deviceinfo.js");
 
 
 
@@ -43,7 +44,7 @@ const partials_path = path.join(__dirname, "../templates/partials");
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-
+app.use(useragent.express());
 
 
 app.use(express.static(static_path));
@@ -214,19 +215,70 @@ app.use((req, res, next) => {
   next();
 });
 
+app.post('/login', checkNotAuthenticated, async (req, res, next) => {
+  passport.authenticate('local', async (err, user, info) => {
+    if (err) {
+      console.log('Error in passport authenticate:', err);
+      return next(err);
+    }
+    if (!user) {
+      console.log('No user found');
+      req.flash('error', 'Invalid username or password.');
+      return res.redirect('/login');
+    }
 
-// Configuring the register post functionality
-app.post('/login', (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
-    if (err) { return next(err); }
-    if (!user) { return res.redirect('/login'); }
-    req.logIn(user, (err) => {
-      if (err) { return next(err); }
+    try {
+      console.log('Inside Promise, before req.login');
+      await new Promise((resolve, reject) => {
+        req.login(user, (loginErr) => {
+          if (loginErr) {
+            console.log('Error in req.login:', loginErr);
+            reject(loginErr);
+          } else {
+            console.log('Login successful');
+            resolve();
+          }
+        });
+      });
+
+      console.log('Post-login logic executing');
+      
+      // Here we capture the IP, device, and login time
+      const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+      const loginTime = new Date().toISOString();
+      const currentUser = await req.user;
+      const student_id = currentUser._id;
+      const device = req.useragent.isDesktop ? 'Desktop' : req.useragent.isMobile ? 'Mobile' : 'Other';
+      console.log('Device:', device);
+      console.log('IP Address:', ip);
+      console.log('Login Time:', loginTime);
+
+      // Store the login information in the session or another persistence layer
+      const loginInfo = {
+        student_id,
+        device,
+        ip,
+        loginTime
+      };
+
+      // Save loginInfo to the database
+      const savedLoginInfo = await deviceinfo.create(loginInfo);
+
+      // You can associate the loginInfo with the user or use it as needed
+
+      req.session.loginInfo = loginInfo; // Storing in session
+      user.loginInfo = loginInfo; // Storing in user object
+
       req.flash('success', 'Successfully logged in!');
       res.redirect('Dashboard');
-    });
+    } catch (loginErr) {
+      console.log('Caught error in login process:', loginErr);
+      next(loginErr);
+    }
   })(req, res, next);
+  console.log('Login route end (async)');
 });
+
 
 app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
   successRedirect: "Dashboard",
@@ -407,9 +459,66 @@ app.use('/expert',expertRoute);
 app.get('/my_courses',checkAuthenticated, (req, res) => {
   res.render('student/my_courses');
 });
-app.get('/my_devices',checkAuthenticated, (req, res) => {
-  res.render('student/my_devices');
+
+app.get('/my_devices', checkAuthenticated, async (req, res) => {
+  try {
+    const currentUser = await req.user;
+
+    // Fetch the user's loginInfo from the database using the student_id
+    const loginInfoList = await deviceinfo.find({ student_id: currentUser._id })
+      .sort({ loginTime: -1 }) 
+      .limit(3);  
+
+    // Check if loginInfoList is available
+    if (!loginInfoList || loginInfoList.length === 0) {
+      console.log('Login information not found in the database');
+     
+      return res.render('error', { errorMessage: 'Login information not found' });
+    }
+
+    
+    const formattedLoginInfoList = loginInfoList.map((loginInfo) => {
+      const loginTime = new Date(loginInfo.loginTime);
+      return {
+        ...loginInfo.toObject(),
+        formattedLoginTime: loginTime.toLocaleString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+        }),
+      };
+    });
+
+    //console.log(formattedLoginInfoList);
+
+    res.render('student/my_devices', {
+      user: currentUser,
+      loginInfoList: formattedLoginInfoList, // Pass the list of formatted login data to the template
+    });
+  } catch (error) {
+    console.error('Error fetching user information:', error);
+    // Handle the error, e.g., redirect to an error page
+    res.render('error', { errorMessage: 'Error fetching user information' });
+  }
 });
+
+
+// app.get('/my_devices', checkAuthenticated, (req, res) => {
+//   const dummyUserInfo = {
+//     device: 'Desktop',
+//     ip: '127.0.0.1',
+//     loginTime: '2024-01-25T18:32:08.025Z'
+//   };
+
+//   res.render('student/my_devices', {
+//     userInfo: dummyUserInfo
+//   });
+// });
+
+
+
 app.get('/my_overview',checkAuthenticated, (req, res) => {
   res.render('student/my_overview');
 });
