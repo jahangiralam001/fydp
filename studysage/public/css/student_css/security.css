@@ -7,6 +7,44 @@
 	box-shadow: var(--box-shadow);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
 }
+.update-message {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+	font-weight: 550; 
+    color: #000000;
+    background-color: #e0ffe0;
+    border: 1px solid #6eb58a;
+    padding: 13px 30px;
+    border-radius: 12px;
+    position: absolute;
+    top: 229px;
+    left: 356px;
+    text-align: center;
+    display: inline-block;
+    width: 390px;
+    box-sizing: border-box;
+}
+ 
+  
+/* 
+.password-update-message {
+	color: #d9534f; 
+	background-color: #f2dede; 
+	border: 1px solid #d9534f;
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	text-align: center;
+  } */
+
+   
+
+
+
+
+
+
+
 .sg{
 	font-family: Arial;
 	font-size: 27px;

@@ -9,38 +9,44 @@
 
 
  {{>student_nav}}
-</div>
+
 
 <div>
-	<p class="se">Security</p>
-	<p class="cp">Change Password</p>
+  <p class="se">Security</p>
+  <p class="cp">Change Password</p>
+  {{#if message}}
+    <span id="updateMessage" class="update-message">{{message}}</span>
+  {{/if}}
 </div>
 
- <div class="card">	
- 	<div>
- 		<p class="line-1">Current Password</p>
- 	</div>
- 	    <input class="Box-1" type="text" name="copypaste" placeholder="">
- 	<div>
- 		<p class="line-2">New Password</p>
- 	</div>
- 	    <input class="Box-2" type="text" name="copypaste" placeholder="">
-<div>
-	<p class="long-single-line">You're changing the password for: {{sp_data.email}}</p>
-</div>
+<form action="/updatePassword" method="POST">
+  <div class="card">  
+    <div>
+      <p class="line-1">Current Password</p>
+    </div>
+    <input class="Box-1" type="password" name="oldPassword" placeholder="" required>
 
-<div class="yaun">
-	<p class="ypmc" style="font-size: 16px; font-weight: bold;">Your password must contain</p>
-	<p>✓ At least 6 characters</p>
-	<p>✓ Uppercase and lowercase letters</p>
-	<p>✓ Number or punctuation</p>
-</div>
+    <div>
+      <p class="line-2">New Password</p>
+    </div>
+    <input class="Box-2" type="password" name="newPassword" placeholder="" required>
 
-<div>
-	<button class="savec">Save Changes</button>
-	
-</div>
-</div>
+    <div>
+      <p class="long-single-line">You're changing the password for: {{sp_data.email}}</p>
+    </div>
+
+    <div class="yaun">
+      <p class="ypmc" style="font-size: 16px; font-weight: bold;">Your password must contain:</p>
+      <p>✓ At least 6 characters</p>
+      <p>✓ Uppercase and lowercase letters</p>
+      <p>✓ A number or punctuation</p>
+    </div>
+
+    <div>
+      <button type="submit" class="savec">Save Changes</button>
+    </div>
+  </div>
+</form>
 
 <div>
 	<p class="changee" style="position: absolute;
@@ -51,6 +57,7 @@
 
  <div class="card" style="top: 330px; left: 850px; right: 10px; bottom: 20px; height: 400px;">	
  	<div>
+		<p class="long-single-line">(Email Changing is Temporary off Now)</p>
  		<p class="line-1">New email</p>
  	</div>
  	    <input class="Box-1" style="top: 120px;"type="text" name="copypaste" placeholder="">
@@ -174,7 +181,7 @@
 </div>
 
   <div>
-  	<p class="footer-msg">© 2003-2023 Chegg Inc. All rights reserved.</p>
+  	<p class="footer-msg">© 20023-202 StudySage Inc. All rights reserved.</p>
   </div>
   <hr class="horizontal-line">
 
@@ -189,5 +196,19 @@
     <button><img class="A" src="icons\Google-Play-icon.jpg" width="137" height="45" alt="search_img"></button>
    
   </div>
+
+<script>
+  // Check if the message span exists
+  var messageSpan = document.getElementById('updateMessage');
+  if (messageSpan) {
+    // Set a timeout to clear the message after 2 seconds (2000 milliseconds)
+    setTimeout(function() {
+      messageSpan.style.display = 'none';
+    }, 100000);
+  }
+</script>
+
+
+
 </body>
 </html>

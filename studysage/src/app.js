@@ -526,26 +526,95 @@ app.get('/payment_method',checkAuthenticated, (req, res) => {
   res.render('student/payment_method');
 });
 
-app.get("/security", checkAuthenticated, async (req, res) => {
+app.get("/security",  async (req, res) => {
   try {
-    // Retrieve data from the database for the currently authenticated user
     const currentUser = await req.user;
-
-    // Log the user object
-    //console.log("User", currentUser.email, "authenticated successfully");
-
     const student_p_Data = await RegisterUser.findById(currentUser._id);
-    //console.log("sp_data:", student_p_Data);
-
-    
     res.render("student/security", { sp_data: student_p_Data });
   } catch (error) {
     res.status(500).send(error);
   }
 });
-// app.get('/', (req, res) => {
-//   res.render('');
-// });
+
+// Route to handle password update
+app.post("/updatePassword", checkAuthenticated, async (req, res) => {
+  try {
+    const { oldPassword, newPassword } = req.body;
+    const currentUser = await req.user;
+    const user = await RegisterUser.findById(currentUser._id);
+
+    // Verify that the new password is different from the old password
+    if (oldPassword === newPassword) {
+      return res.render("student/security", {
+        sp_data: currentUser,
+        message: 'New password must be different from the old password.'
+      });
+    }
+
+    // Check that the new password is not the same as the user's email address
+    if (newPassword === currentUser.email) {
+      return res.render("student/security", {
+        sp_data: currentUser,
+        message: 'Your password cannot be the same as your email address.'
+      });
+    }
+
+    // Check that the new password is at least 8 characters long
+    if (newPassword.length < 8) {
+      return res.render("student/security", {
+        sp_data: currentUser,
+        message: 'Your password must be at least 8 characters long.'
+      });
+    }
+
+    // Check if the password contains user's personal information (for simplicity, using name as an example)
+    // You would replace 'name' with the actual property from your user object that contains the user's name
+    if (newPassword.toLowerCase().includes(user.name.toLowerCase())) {
+      return res.render("student/security", {
+        sp_data: currentUser,
+        message: 'Your password should not contain personal information.'
+      });
+    }
+
+    // Check for strong password according to ISO 27001 guidelines
+    // This is a basic check, consider using a library for more comprehensive validation
+    const strongPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    if (!strongPasswordRegex.test(newPassword)) {
+      return res.render("student/security", {
+        sp_data: currentUser,
+        message: 'Your password does not meet the strength requirements.'
+      });
+    }
+
+    // Verify old password
+    const isMatch = await bcrypt.compare(oldPassword, user.password);
+    if (!isMatch) {
+      console.log("Old password is incorrect.");
+      return res.render("student/security", {
+        sp_data: currentUser,
+        message: 'Old password is incorrect.'
+      });
+    }
+
+    // Hash new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    
+    // Update database
+    user.password = hashedPassword;
+    await user.save();
+    console.log("Password updated successfully");
+    res.render("student/security", {
+      sp_data: currentUser,
+      message: 'Password updated successfully.'
+    });
+  } catch (error) {
+    res.render("student/security", {
+      sp_data: currentUser,
+      message: 'An error occurred while updating the password.'
+    });
+  }
+});
+
 
 
 app.get("/student_profile", checkAuthenticated, async (req, res) => {
