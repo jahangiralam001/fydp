@@ -1,0 +1,629 @@
+*{
+	font-family: Arial;
+
+	}
+
+
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 10px 20px;
+}
+
+.nav {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav,
+.nav_item{
+	display: flex-end;
+	height: 100%;
+	justify-content: space-between;
+
+}
+.nav_link{
+	 text-decoration: none; 
+        color: #000;
+}
+.nav_link:hover{ 
+        color: #000;
+
+}
+.user-pic {
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 15px; /* Adjust margin as needed */
+}
+.sub-menu-wrap{
+	position: absolute;
+	top: 100%;
+	right: 10%;
+	width: 250px;
+	height: 330px;
+	max-height: 10px;
+	overflow: hidden;
+	transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu{
+	max-height: 400px;
+}
+
+.sub-menu{
+	background: #fff;
+	padding: 20px;
+	margin: 10px;
+}
+.user-info{
+	display: flex;
+	align-items: center;
+	height: 2%;
+	width: 2%;
+}
+.user-info h3{
+	font-weight: 500;
+
+}
+.user-info img {
+    width: 48px;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+.sub-menu hr{
+	border: 0;
+	height: 1px;
+	width: 100%;
+	background: #ccc;
+	margin: 2px 0;
+}
+.sub-menu-link{
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #525252;
+	margin: 2px 0;
+}
+
+.sub-menu-link p{
+	width: 100%;
+}
+.sub-menu-link img{
+	width: 40px;
+	background: #fff;
+	border-radius: 50%;
+	padding: 8px;
+	margin-right: 15px;
+}
+.sub-menu-link span{
+	font-size: 10px;
+	transition: transform 0.5s;
+}
+
+.sub-menu-link:hover p{
+	font-weight: 600;
+}
+.middle-section {
+    flex: 1; /* Use flex property to take available space */
+    display: flex;
+    align-items: center;
+}
+.search-bar {
+    font-size: 16px;
+    margin-top: 0px;
+    flex: 1; /* Use flex property to take available space */
+    height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192, 192, 192);
+    border-radius: 2px;
+    padding-left: 40px;
+    box-shadow: inset 1px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.search-button {
+    height: 44px;
+    width: 50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192, 192, 192);
+    margin-right: 40px;
+    margin-left: -1.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    opacity: 0.3;
+}
+
+.search_icon {
+    margin-left: 3px;
+    margin-top: -0px;
+}
+.first-section{
+	width: 100%;
+	max-width: 300px;
+	margin-left: 10px;
+}
+.EQA_button{
+	font-family: Arial;
+	font-size: 27px;
+	height: 42px;
+	width: 150px;
+	margin-left: 8rem;
+	
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	background-color: white;
+}
+.EQA_button:hover{
+	opacity: 0.3;
+}
+
+@media only screen and (max-width: 768px) {
+    .EQA_button {
+        font-size: 20px; /* Adjust font size for smaller screens */
+        width: 120px; /* Adjust width for smaller screens */
+        margin-left: 11rem; /* Adjust margin-left for smaller screens */
+    }
+}
+
+.sidebar{
+	position: fixed;
+	bottom: 0;
+	left: 0px;
+	top: 0px;
+	width: 220px;
+	background-color: rgb(200, 194, 241);
+}
+.all-btn{
+	margin-top: 5rem;
+}
+.sidebar
+button{
+	margin: -0.5rem;
+	height: 35px;
+	width: 200px;
+	border: none;
+	font-size: 17.5px;
+	padding-top: 2rem;
+	cursor: pointer;
+	display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 39px;
+	background-color: rgb(200, 194, 241);
+}
+.sidebar
+button:hover{
+	opacity: 0.3;
+}
+.horizontal-line{
+	width: 100%;
+}
+/*.life-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed 
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed 
+    font-size: 16px;
+}
+
+.life-button img {
+    width: 37px; /* Adjust the width of the image as needed 
+    height: 37px;/* Adjust the height of the image as needed 
+}*/
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.home img {
+    width: 21px; /* Adjust the width of the image as needed */
+    height: 21px;/* Adjust the height of the image as needed */
+}
+.study-tools{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.study-tools img {
+    width: 24px; /* Adjust the width of the image as needed */
+    height: 24px;/* Adjust the height of the image as needed */
+}
+.post-q-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+	padding-left: 2.1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.post-q-btn-img img {
+    width: 21px; /* Adjust the width of the image as needed */
+    height: 21px;/* Adjust the height of the image as needed */
+}
+.ai-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.ai-btn-img img {
+    width: 30px; /* Adjust the width of the image as needed */
+    height: 30px;/* Adjust the height of the image as needed */
+}
+.my-c-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.my-c-btn-img img {
+    width: 22px; /* Adjust the width of the image as needed */
+    height: 22px;/* Adjust the height of the image as needed */
+}
+.my-books-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap as needed */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff; /* Adjust the background color as needed */
+    font-size: 16px;
+}
+.my-books-btn-img img {
+    width: 27px; /* Adjust the width of the image as needed */
+    height: 27px;/* Adjust the height of the image as needed */
+}
+.subscribe{
+	height: 100px;
+	width: 100px;
+}
+.std{
+	position: absolute;
+	font-family: Arial;
+	font-weight: bold;
+	bottom: 200px;
+	left: 532px;
+	color: rgb(200, 194, 241);
+}
+.EA{
+	position: absolute;
+	bottom: 150px;
+	left: 530px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 19px;
+}
+.answer{
+	position: absolute;
+	font-family: Arial;
+	bottom: 120px;
+	left: 530px;
+	font-size: 13px;
+}
+
+.card {
+    background-color: #FFFAF0;
+    align-items: center;
+    position: absolute;
+    padding-top: 20px;
+    height: 250px;
+    width: 340px;
+    top: 9.3rem;
+    left: 68%;
+}
+.Post-a-question-box{
+	position: absolute;
+	bottom:83px;
+	height: 75px;
+	width: 230px;
+	padding-left: 19px;
+	left: 50px;
+	border-radius: 5px;
+	border-width: 1.5px;
+}
+.post{
+	font-family: Arial;
+	position: absolute;
+	left: 50px;
+	top: 10px;
+	font-size: 20px;
+	color: black;
+}
+.sub{
+	font-family: Arial;
+	position: absolute;
+	top: 53px;
+	left: 50px;
+	color: black;
+	font-size: 13px;
+	
+}
+.continue-to-post-button{
+	position: absolute;
+	left: 100px;
+	top: 210px;
+	height: 30px;
+	width: 140px;
+	border-radius: 50px;
+	border:none;
+	cursor: pointer;
+	color: white;
+	background-color: black;
+}
+.continue-to-post-button:hover{
+	opacity: 0.3;
+}
+
+/*@media only screen and (max-width: 768px) {
+    .card {
+        width: 50vh; 
+        left: 10rem;
+    }
+
+
+    .Post-a-question-box {
+        width: 55%; 
+        left: 10rem;
+    }
+
+    .post,
+    .sub,
+    .continue-to-post-button {
+        width: 55%; 
+        left: 10rem;
+        text-align: center;
+    }
+}*/
+.card2 {
+    background-color: #FFFAF0;
+    align-items: center;
+    position: absolute;
+    padding-top: 20px;
+    left: 68%; /* Adjust the left position as needed */
+    height: 250px;
+    width: 340px;
+    top: 29rem; /* Adjust the top position as needed *//* Adjust the top position as needed */
+}
+.card3 {
+    background-color: #fff;
+    align-items: center;
+    position: absolute;
+    padding-top: 20px;
+    left: 450px;
+    height: 148vh;
+    width: 550px;
+    border: solid 1px #ccc;
+    top: 150px; /* Adjust the top position as needed */
+}
+.panel-body {
+    position: absolute; 
+    left: 3.5rem;         
+    top: 3.5rem;
+    height: 300px; 
+    width: 80%;   
+    margin: 0;      
+    padding: 0;     
+    box-sizing: border-box;
+}
+
+.std {
+    position: absolute;
+    font-family: Arial;
+    font-weight: bold;
+    top: 18rem;
+    left: 27%;
+    transform: translateX(-50%);
+    color: rgb(161, 150, 234);
+}
+
+.EA {
+    position: absolute;
+    top: 21rem;
+    left: 23%;
+    transform: translateX(-50%);
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.answer {
+    font-family: Arial;
+	position: absolute;
+	font-size: 14.5px;
+	top: 25rem;
+    left: 10.5%;
+}
+
+@media only screen and (max-width: 768px) {
+    .std,
+    .EA,
+    .answer {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+}
+
+.sbs{
+	font-family: Arial;
+	position: absolute;
+	font-weight: bold;
+	font-size: 20px;
+	top: 29rem;
+    left: 10%;
+}
+.show-exp-ans{
+	background-color: white;
+    margin-top: 32rem;
+    margin-left: 3.5rem;
+    height: 200px;
+    width: 450px;
+    border: solid 1px #20b2aa;
+  /* Center the text horizontally */
+}
+.show-exp-ans
+p{
+	margin-top: 1rem;
+	margin-left: 5.5rem;
+
+}
+
+.idea{
+	height: 52px;
+	width: 50px;
+	margin-left: 12rem;
+	margin-top: 3rem;
+	
+    
+}
+
+
+.card4 {
+    top: 61.2rem;
+    left: 0;
+    right: 10px;
+    border-radius: 0px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust the space between text and buttons */
+    color: rgb(161, 150, 234);
+    
+    
+}
+
+.card4 p {
+    margin-right: 15px;
+    padding: 50px;
+    font-weight: bold; /* Add margin between text and buttons */
+}
+.like-dislike-btn {
+     height: 35px;
+    width: 20%; /* Adjust the width based on the container width */
+    border-radius: 50px;
+    border: 1px solid #000000;
+    display: flex;
+    padding: 1%; /* Adjust padding based on the container width */
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center;
+    margin-right: 2%;
+    cursor: pointer;  
+
+}
+.like-dislike-img {
+    height: 25px;
+    width: 25px;
+}
+
+.like-dislike-btn img {
+    height: 100%;
+    width: auto;
+    margin: 0; /* Remove default margin for images */
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .card4 {
+        top: auto; /* Reset the top value for smaller screens */
+        bottom: 0; /* Position at the bottom */
+    }
+}
+
+.card5 {
+    background-color: #FFFAF0;
+    align-items: center;
+    position: absolute;
+    padding-top: 20px;
+    left: 28rem;
+    height: 250px;
+    width: 550px;
+    top:77rem; /* Adjust the top position as needed */;
+}
+.Post-a-question-box5{
+	position: absolute;
+	bottom:83px;
+	height: 75px;
+	width: 440px;
+	padding-left: 19px;
+	left: 50px;
+	border-radius: 5px;
+	border-width: 1.5px;
+}
+
+.continue-to-post-button5{
+	position: absolute;
+	left: 10rem;
+	top: 210px;
+	height: 30px;
+	width: 140px;
+	border-radius: 50px;
+	border:none;
+	cursor: pointer;
+	color: white;
+	background-color: black;
+}
+.continue-to-post-button5:hover{
+	opacity: 0.3;
+}
+.AI-expert-btn{
+	position: absolute;
+	left: 20rem;
+	top: 210px;
+	height: 30px;
+	width: 140px;
+	border-radius: 50px;
+	border:none;
+	cursor: pointer;
+	color: white;
+	background-color: black;
+}
+.AI-expert-btn:hover{
+	opacity: 0.3;
+}

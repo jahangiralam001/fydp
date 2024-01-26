@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>After post a question</title>
+	<link rel="stylesheet"   href="/css/after_post_q.css"/>
+	<link rel="stylesheet" type="text/css" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+ <header class="header">
+    <nav class="nav">
+    	<div class="first-section">
+		<button class="EQA_button">
+			Expert Q/A
+		</button>
+   </div>
+         <div class="middle-section"><input class="search-bar"type="text" placeholder="Find books or homework solutions"><button class="search-button">
+
+		<img class="search_icon" src="/icons/search.png" width="30" height="30" alt="search_img">
+	</button>
+		
+    </div> 
+
+       <div class="nav_item">
+
+       
+
+        <div>
+        
+      
+
+        </div>
+        
+    </nav>
+    </header>
+
+    <script>
+        let subMenu = document.getElementById("subMenu");
+        function toggleMenu() {
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
+
+  <div class="sidebar">
+  <div class="all-btn">
+  <!--<button class="study-sage-btn-img">StudySage</button><br>
+  <hr class="horizontal-line">-->
+  <a href="/Dashboard" style="text-decoration: none;"><button class="home">Home<img src="/submit question image/home.png" alt="Life Icon"></button></a><br>
+  <hr class="horizontal-line">
+  <button class="ai-btn-img">AI Expert<img src="/submit question image/chatbot.png" alt="Life Icon"></button><br>
+  <hr class="horizontal-line">
+  <button class="my-books-btn-img">My books<img src="/submit question image/books.png" alt="Life Icon"></button><br>
+  <hr class="horizontal-line">
+   <button class="study-tools">Study tools<img src="/submit question image/study.png" alt="Life Icon"></button><br>
+  <hr class="horizontal-line">
+ <button class="my-c-btn-img">My Courses<img src="/submit question image/my courses.png" alt="Life Icon"></button><br>
+  <hr class="horizontal-line">
+   <a href="/submit_question" style="text-decoration: none;"><button class="post-q-btn-img">Post a question<img src="/submit question image/post q.png" alt="Life Icon" ></button></a><br>
+  <hr class="horizontal-line">
+  <!-- <button class="life-button">Life  <img src="submit question image\leaf icon.png" alt="Life Icon"></button>-->
+  </div>
+  <div class="subscribe">
+	<button>Subscribe Now</button>
+  </div>
+</div>
+ 
+
+ 
+
+<div class="card card3">
+   
+   
+     <div class="panel-body">
+
+    {{#if question_data.question}}
+    <p>Question: {{question_data.question}}</p>
+{{/if}}
+
+{{#if question_data.file}}
+    {{#if question_data.file.data}}
+        <img src="data:{{question_data.file.contentType}};base64,{{question_data.file.data}}" alt="Uploaded Image" width="350px",height="90">
+    {{/if}}
+{{/if}}
+</div>
+
+ 
+ {{!-- <div>
+ 	<p class=EA>Expert Answer</p>
+ </div>
+ <div>
+ 	<p class="answer">This is the answer of this question. This was written by miss x</p>
+ </div> --}}
+ 
+ <div>
+	<p class="sbs">Expert Answer</p>
+</div>
+
+<div>
+{{#if question_data.is_answered}}
+    <div>
+        <p class="EA">Expert Answer</p>
+        <p class="answer">{{question_data.answer}}</p>
+        {{#if question_data.answer_file.data}}
+            <img src="data:{{question_data.answer_file.contentType}};base64,{{question_data.answer_file.data}}" alt="Expert's Image" width="350px" height="90">
+        {{/if}}
+    </div>
+{{else}}
+    <div class="show-exp-ans">
+        <img class="idea" src="/after-post-q-image/idea.jpg" alt="Life Icon">
+        <p>An expert answer will be posted here.</p>
+    </div>
+{{/if}}
+</div>
+
+    <div class="card card4">
+    	<div>
+    		<p>Was this answer helpful?</p>
+    	</div>
+    	
+    	<button class="like-dislike-btn"><img src="/after-post-q-image/like.png" width="20" height="20" alt="search_img"></button>
+    	<button class="like-dislike-btn"><img src="/after-post-q-image/dont-like.png" width="20" height="20" alt="search_img"></button>
+    	</div>
+    </div>
+	</div>
+ 
+
+ <div class="card card5">
+    <input class="Post-a-question-box5" type="text" name="copypaste" placeholder="Yet another example question">
+    <div>
+        <p class="post">Post a question here</p>
+    </div>
+    <div>
+        <p class="sub">Your toughest questions solved step by step</p>
+    </div>
+    <div>
+     <a href="/submit_question" style="text-decoration: none;"> <button class="continue-to-post-button" style=" top:212px; left: 110px;">continue to post</button> </a> 
+        <button class="AI-expert-btn">AI Expert</button>
+    </div>
+</div>
+
+
+</body>
+</html>
