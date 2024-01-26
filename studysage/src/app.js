@@ -17,6 +17,8 @@ const { promisify } = require("util");
 const nodemailer = require("nodemailer");
 const useragent = require('express-useragent');
 const { format } = require('date-fns');
+const { v4: uuidv4 } = require('uuid');
+
 //ALL the DATABASE
 require("./db/conn");
 const Test = require("./models/subQwithmail");
@@ -377,19 +379,22 @@ app.get("/after_post_q", (req, res) => {
 // });
 
 
+function generateUniqueID() {
+  return uuidv4();
+}
 
  
 
 app.post("/submit_question", upload.single("file"), async (req, res) => {
   try {
    
-
+    const uniqueQuestionID = generateUniqueID();
     // Ensure req.file is defined before accessing its properties
     const fileData = req.file ? req.file.buffer.toString('base64') : null;
     const contentType = req.file ? req.file.mimetype : null;
 
     console.log(req.body);
-
+      
      
     
     const currentDate = new Date();
@@ -420,17 +425,33 @@ app.post("/submit_question", upload.single("file"), async (req, res) => {
         data: "",
         contentType: "",
       },
-      question_id: req.body.question_id,
+      question_id: uniqueQuestionID,
       date: `${formattedDate} ${formattedTime}`,
       is_answered: 0,
       answered_by: 0,
     });
 
     const result = await postedQ.save();
-    res.status(201).render("after_post_q", { question_data: result });
+    res.status(201).redirect(`/question/${uniqueQuestionID}`);
   } catch (error) {
     console.error("MongoDB Error:", error);
     res.status(400).send(error);
+  }
+});
+
+app.get("/question/:uniqueQuestionID", async (req, res) => {
+  try {
+    const uniqueQuestionID = req.params.uniqueQuestionID;
+    const questionData = await PostedQuestion.findOne({ question_id: uniqueQuestionID });
+
+    if (!questionData) {
+      return res.status(404).send("Question not found");
+    }
+
+    res.render("after_post_q", { question_data: questionData });
+  } catch (error) {
+    console.error("Error fetching question:", error);
+    res.status(500).send("Internal Server Error");
   }
 });
 
