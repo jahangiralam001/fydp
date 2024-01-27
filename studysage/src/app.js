@@ -25,7 +25,7 @@ const Test = require("./models/subQwithmail");
 const RegisterUser = require("./models/registerUser.js");
 const PostedQuestion = require("./models/postQuestion.js");
 const deviceinfo = require("./models/deviceinfo.js");
-
+const Payment = require("./models/payment.js");
 
 
 
@@ -299,6 +299,7 @@ app.post("/register", async (req, res) => {
           email: req.body.email,
           password: hashedPassword,
           is_admin:0,
+          is_subscribed:0,
           date: Date.now().toString(), 
     });
 
@@ -328,7 +329,7 @@ app.post("/register", async (req, res) => {
 
 
 // Routes
-app.get("/Dashboard",checkAuthenticated, (req, res) => {
+app.get("/Dashboard",checkAuthenticated,(req, res) => {
   res.render("Dashboard");
    
 });
@@ -525,6 +526,111 @@ app.get('/my_devices', checkAuthenticated, async (req, res) => {
   }
 });
 
+app.post('/submit_payment', async (req, res) => {
+  try {
+    console.log("Submit Payment Request Received");
+    const currentUser = await req.user;
+      const userId  = currentUser._id;
+    console.log("User:", currentUser);
+    console.log("Request Body:", req.body);
+
+    if (currentUser) {
+        const user = await RegisterUser.findById(currentUser._id);
+        console.log("Found User:", user);
+        
+
+
+        if (!currentUser) {
+          console.log("User not found in database");
+          req.flash('error', 'User not found');
+          return res.redirect('/subscribe');
+        }
+        const updateInfo = await RegisterUser.updateOne({ _id: userId }, { $set: { is_subscribed: 1 } });
+        console.log('Update Info:', updateInfo);
+        console.log("User subscription status updated");
+    
+        
+        const newPayment = new Payment({
+            cardName: req.body.cardName,
+            cardNumber: req.body.cardNumber,
+            expDate: req.body.expDate,
+            cvv: req.body.cvv,
+            country: req.body.country,
+            userId: currentUser._id,
+            amount: 5 // or any other amount logic you might have
+        });
+        await newPayment.save();
+        console.log("Payment details saved");
+
+        req.flash('success', 'Successfully subscribed');
+        res.redirect('/Dashboard');
+    } else {
+        console.log("User not authenticated");
+        req.flash('error', 'You need to be logged in to subscribe');
+        res.redirect('/login');
+    }
+  } catch (error) {
+    console.error('Error in payment process:', error);
+    req.flash('error', 'An error occurred during the subscription process');
+    res.redirect('/subscribe');
+  }
+});
+
+
+// function checkSubscription ,asyn(req, res) =>{
+//   const currentUser = req.user;
+
+//   if (currentUser && currentUser._id) {
+//     try {
+//         const userRecord = RegisterUser.findById(currentUser._id);
+//         if (userRecord && userRecord.is_subscribed) {
+//             console.log("Current user is subscribed.");
+//             next(); // Proceed to the next middleware or route handler
+//         } else {
+//             console.log("Current user is not subscribed.");
+//             req.flash("error", "Before posting a question, please subscribe!");
+//             res.redirect("/subscribe");
+//         }
+//     } catch (error) {
+//         console.error("Error fetching user from database:", error);
+//         req.flash("error", "An error occurred. Please try again.");
+//         res.redirect("/subscribe");
+//     }
+//   } else {
+//     console.log("No user information available.");
+//     req.flash("error", "Before posting a question, please subscribe!");
+//     res.redirect("/subscribe");
+//   }
+// }
+
+// New route in app.js to handle the "continue to post" button click
+app.get("/check_subscription_before_posting", async (req, res) => {
+
+
+  const currentUser = await req.user;
+  const userId  = currentUser._id;
+console.log("User:", currentUser);
+   
+  if (currentUser && userId) {
+    try {
+        const userRecord = await RegisterUser.findById(userId);
+        if (userRecord && userRecord.is_subscribed) {
+            console.log("Current user is subscribed.");
+              res.redirect("/submit_question");
+        } else {
+            console.log("Current user is not subscribed.");
+            res.redirect("/subscribe");
+        }
+    } catch (error) {
+        console.error("Error fetching user from database:", error);
+        // Handle the error appropriately
+    }
+} else {
+    console.log("No user information available.");
+    req.flash("error", "Before posting a question, please subscribe!");
+    res.redirect("/subscribe");
+}
+});
 
 // app.get('/my_devices', checkAuthenticated, (req, res) => {
 //   const dummyUserInfo = {
@@ -656,7 +762,15 @@ app.get("/student_profile", checkAuthenticated, async (req, res) => {
   }
 });
 
-// End Routes student routes
+// End Routes payemt routes
+app.get('/subscribe', checkAuthenticated,(req, res) => {
+  res.render('subscribe');
+});
+
+
+app.get('/subscribe_payment',checkAuthenticated,(req, res) => {
+  res.render('subscribe_payment');
+});
 
 // End Routes
 

@@ -1,0 +1,383 @@
+* {
+   
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial";
+    font-weight: bold;
+}
+:root {
+    --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.header{
+	position: relative;
+	height: 80px;
+	width: 97rem;
+	z-index: 100;
+	padding: 0 20px;
+    background-color: aliceblue;
+	box-shadow: var(--box-shadow);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.nav{
+	max-width: 1100px;
+	width: 100%;
+	margin: 0 auto;
+}
+.nav,
+.nav_item{
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+.nav_logo{
+	font-size: 25px;
+	margin-right: 200px;
+	color: black;
+	font-weight: bold;
+	text-decoration: none; 
+        
+}
+.nav_item{
+	column-gap: 25px;
+}
+.nav_link{
+	 text-decoration: none; 
+        color: #000;
+}
+.nav_link:hover{ 
+        color: #000;
+
+}
+.para-1{
+	background-color: #fff;
+	height: 60px;
+	width: 97rem;
+	padding: 18px;
+    padding-left: 50px;
+	display: flex;
+	column-gap: 1.2rem;
+    border-bottom: 1px solid #ccc;
+}
+.para-1
+p{
+    margin-top: 4px;
+}
+.para-1
+img{
+	height: 27px;
+	width: 27px;
+
+}
+.para-2{
+    height: 100px;
+    width: 97rem;
+    font-size: 24px;
+    padding: 1.5rem 0 0 10rem;
+    margin: 2rem 0px 0px 0rem;
+    background-color: #fff;
+}
+.para-2
+.small-para{
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 0.5rem;
+}
+.two-container{
+    height: 40rem;
+    width: 85rem;
+    display: flex;
+    column-gap: 5rem;
+    margin: 2rem 0 0 10rem;
+}
+.two-container
+button{
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    height: 2.5rem;
+    width: 33rem;
+    font-size: 17px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 1px solid #000;
+    background: transparent;
+}
+.two-container
+button:hover{
+    opacity: 0.3;
+}
+.two-container
+p{
+    margin: 1rem;
+}
+.payment-container{
+    background-color: #fff;
+    height: 37.5rem;
+    width: 35rem;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.payment-container
+.or{
+    margin-left: 16.5rem;
+    font-weight: lighter;
+}
+.payment-container label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    padding-left: 1rem;
+}
+
+.payment-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+
+.payment-container .exp-cvv {
+    display: flex;
+    justify-content: space-between;
+}
+.two-container
+.pay-with-card-cards{
+    display: flex;
+    border-left: none;
+    border-right: none;
+    justify-content: space-between;
+}
+.two-container
+.pay-with-card-cards
+img{
+    height: 35px;
+    width: 60px;
+}
+.pay-with-card-cards{
+    border: 1px solid lightgrey;
+}
+.all-fields-required{
+    font-weight: lighter;
+    font-size: 13px;
+}
+.exp-cvv{
+    display: flex;
+    justify-content: space-between;
+}
+.exp-cvv
+input{
+    width: 16rem;
+}
+.mm-yy{
+font-size: 13px;
+font-weight: lighter;
+}
+.two-container
+select{
+    height: 3rem;
+    width: 33rem;
+    margin-left: 1rem;
+    border-radius: 10px;
+    padding-left: 0.5rem;
+    font-size: 15px;
+}
+
+.join-now-container{
+    height: 40rem;
+    width: 45rem;
+}
+.join-now-container
+button{
+    width: 10rem;
+    cursor: pointer;
+}
+.join-now-container
+button:hover{
+    opacity: 0.3;
+}
+.join-now-container
+img{
+    height: 20px;
+    width: 18px;
+    margin-top: 1px;
+}
+.join-now-container
+p{
+    font-weight: lighter;
+}
+.billing-details{
+    padding: 0.5rem;
+    height: 10rem;
+    margin-top: 4rem;
+    background-color: aliceblue;
+}
+.billing-details
+.para-0{
+    font-weight: bold;
+   
+}
+.device-policy
+.p-0{
+    font-weight: bold;
+}
+.ins{
+    margin-top: 2rem;
+}
+.instructions{
+	background-color: #fff;
+	height: 60px;
+	padding: 18px;
+	display: flex;
+}
+.instructions
+p{
+    margin-top: 4px;
+}
+.instructions
+img{
+	height: 27px;
+	width: 27px;
+
+}
+.feature-1{
+	height: 60px;
+	padding: 18px;
+	display: flex;
+}
+.feature-1
+p{
+    margin-top: 4px;
+}
+.feature-1
+.feature-2
+.feature-3
+img{
+    height: 27px;
+	width: 27px;
+}
+
+.feature-2{
+	height: 60px;
+	padding: 18px;
+	display: flex;
+}
+.feature-2
+p{
+    margin-top: 4px;
+}
+
+
+.feature-3{
+	height: 60px;
+	padding: 18px;
+	display: flex;
+}
+.feature-3
+p{
+    margin-top: 4px;
+    font-weight: bold;
+}
+.f1-f2-f3{
+    background-color: lightblue;
+}
+.cydgphi{
+	display: flex;
+	justify-content: space-between;
+	top: 76rem;
+	position: absolute;
+	left: 700px;
+	padding: 20px;
+  }
+  
+  .cydgphi button {
+	padding: 10px 20px;
+	background-color: white;
+	color: black;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 0px; 
+	background: transparent;
+  }
+  
+  .cydgphi button:last-child {
+	margin-right: 2px; 
+  }
+  .footer-msg{
+	  position: absolute;
+	  top: 78rem;
+	  left: 200px;
+  
+  }
+  .horizontal-line{
+	  position: absolute;
+  
+	  margin: 10px 0;
+	  top: 75rem;
+	  left: 5rem;
+	  width: 88rem;
+	  border: none; 
+		height: 1px; 
+		background-color: #ccc; 
+  }
+  .fti{
+	display: flex;
+	justify-content: space-between;
+	top: 69rem;
+	position: absolute;
+	left: 150px;
+	padding: 20px;
+  }
+  
+  .fti button {
+	padding: 10px 20px;
+	background-color: white;
+	color: black;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 0px; 
+	background: transparent;
+  }
+  
+  .fti button:last-child {
+	margin-right: 2px; 
+  }
+  .GA{
+	display: flex;
+	justify-content: space-between;
+	top: 68rem;
+	position: absolute;
+	left: 1000px;
+	padding: 20px;
+  }
+  .GA button {
+	padding: 10px 20px;
+	background-color: white;
+	color: black;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 0px; 
+	background: transparent;
+  }
+  
+  .GA button:last-child {
+	margin-right: 2px; 
+  }
+  
+  
+  
+  
+  
+

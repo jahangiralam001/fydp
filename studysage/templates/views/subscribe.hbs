@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Subscribe</title>
+	<link rel="stylesheet" type="text/css" href="css/subscribe.css"/>
+	<link rel="stylesheet" type="text/css" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+	
+ <header class="header">
+	<nav class="nav">
+		<a href="#" class="nav_logo">Study Sage</a>
+		
+        <div>
+			{{#if error}}
+    <div id="updateMessage" class="update-message">{{error}}</div>
+{{/if}}
+
+		</div>
+		
+	</nav>
+	</header>
+
+	<div class="para-1">
+
+
+		<div>
+			<img src="s_image/set_of_glyph_clocks.jpg" alt="Life Icon">
+		</div>
+		<div>
+			<p>Limited time only: Congrats, you're automatically saving up to 50% of your Studysage subscription!</p>
+		</div>
+	</div>
+
+	<div class="para-2">
+		<button>Reliable solutions from verified experts.<br>
+		Prepare for exams and study more efficiently today!!</button>
+	</div>
+
+	<div class="para-3">
+		<p>Choose your plan:</p>
+	</div>
+	
+	<div class="container">
+		
+		<div class="container-I">
+		<div>
+			<p class="I">StudySage Pack<br>$5/mo.</p><br>
+		</div>
+		<button onclick="redirectToDestination()">Choose Study Pack</button><br>
+		<div class="II">
+			<p><img src="s_image/set_of_check_marks_multiple_colours.jpg">  Unlimited solutions from subjec<br><span class="span-left">matter</span> experts</p><br>
+			<p><img src="s_image/set_of_check_marks_multiple_colours.jpg">  Plagiarism scans & proofreading<br><span class="span-left">matter</span>support</p><br>
+			<p><img src="s_image/set_of_check_marks_multiple_colours.jpg">  Instant step-by-step math<br><span class="span-left">matter</span>solutions</p><br>
+			<p><img src="s_image/set_of_check_marks_multiple_colours.jpg">  Quiz & exam practice</p>
+		</div>
+	</div>
+
+		<div class="container-II">
+		<div>
+			<p class="para-a">StudySage Pack<br>$2/mo.</p><br>
+		</div>
+		<button onclick="redirectToDestination()">Choose Study Pack</button><br>
+		<div class="para-b">
+			<p><img src="s_image/set_of_check_marks_multiple_colours.jpg">  Unlimited solutions from subjec<br><span class="span-left">matter</span> experts</p><br>
+			<p><img src="s_image/noun-cross-50866.png">  Plagiarism scans & proofreading<br><span class="span-left">matter</span>support</p><br>
+			<p><img src="s_image/noun-cross-50866.png">  Instant step-by-step math<br><span class="span-left">matter</span>solutions</p><br>
+			<p><img src="s_image/noun-cross-50866.png">  Quiz & exam practice</p>
+		</div>
+	</div>
+</div>
+
+
+<div>
+	<div class="card-III">
+		<div class="card-III-para-I">
+		<p class="pa-I"><span>91%</span> of students report getting better<br>grades using Studysage</p>
+	</div>
+	
+	<div>
+		<p class="card-III-para-II">"I could not imagine life as a student without Studysage."<br>- Mandy (@mandzatoba) via X, studying biology</p>
+	</div>
+</div>
+
+  <div>
+  	<p class="footer-msg">© 2003-2023 Chegg Inc. All rights reserved.</p>
+  </div>
+  <hr class="horizontal-line">
+
+  <div class="fti">
+    <button><img class="fb" src="s_image/facebook.jpg" width="50" height="40" alt="search_img"></button>
+    <button><img class="twit" src="s_image/twitter.jpg" width="40" height="35" alt="search_img"></button>
+    <button><img class="inst" src="s_image/instagram.jpg" width="37" height="38" alt="search_img"></button>
+  </div>
+
+  <div class="GA">
+    <button><img class="G" src="s_image/Google-Play-icon.jpg" width="135" height="44" alt="search_img"></button>
+    <button><img class="A" src="s_image/App-Store-Icon.jpg" width="137" height="45" alt="search_img"></button>
+   
+  </div>
+  <div class="cydgphi">
+    <button>Cookie Notice</button>
+    <button>Your Privacy Choices</button>
+    <button>Do not sell my info</button>
+    <button>General Policies</button>
+    <button>Privacy Policy</button>
+   
+  </div>
+  <script>
+	function redirectToDestination() {
+    window.location.href = 'subscribe_payment';
+}
+
+  // Check if the message span exists
+  var messageSpan = document.getElementById('updateMessage');
+  if (messageSpan) {
+    // Set a timeout to clear the message after 2 seconds (2000 milliseconds)
+    setTimeout(function() {
+      messageSpan.style.display = 'none';
+    }, 100000);
+  }
+</script>
+</body>
+</html>

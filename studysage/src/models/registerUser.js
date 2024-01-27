@@ -23,6 +23,10 @@ const registerSchema = new mongoose.Schema({
         type: Number,
         default:0
     },
+    is_subscribed:{
+        type: Number,
+        default:0
+    },
     date:{
         type:Date,
          

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Subscribe</title>
+	<link rel="stylesheet" type="text/css" href="css/subscribe_payment.css"/>
+	<link rel="stylesheet" type="text/css" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    {{!-- <script src="script.js" defer></script> --}}
+
+</head>
+<body>
+	
+ <header class="header">
+	<nav class="nav">
+		<a href="#" class="nav_logo">Study Sage</a>
+		<!--<ul class="nav_items">
+			<li class="nav_item">
+				<a href="#" class="nav_link">Home</a>
+				<a href="#" class="nav_link">Expert Q & A</a>
+				<a href="#" class="nav_link">My answers</a>
+			</li>
+		</ul>
+
+		<img src="user-profile-icons\profile.jpg" alt="User Profile" class="user-pic" onclick="toggleMenu()">
+
+		<div class="sub-menu-wrap" id="subMenu">
+			<div class="sub-menu">
+				<div class="user-info">
+					<img src="user-profile-icons\profile.jpg">
+				<h2>User</h2>
+					
+				</div>
+				<hr>
+	<a href="#" class="sub-menu-link">
+	<img src="user-profile-icons\edit profile img.png">
+	<p>Edit Profile</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="user-profile-icons\settings img.png">
+	<p>Settings & Privacy</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="user-profile-icons\help and supporr img.png">
+	<p>Help & Support</p>
+	<span>></span>
+	</a>
+
+	<a href="#" class="sub-menu-link">
+	<img src="user-profile-icons\logout img.png">
+	<p>Logout</p>
+	<span>></span>
+	</a>
+			</div>
+			
+		</div>-->
+		
+	</nav>
+	</header>
+
+    <div class="para-1">
+		<div>
+			<img src="image\set_of_glyph_clocks.jpg" alt="Life Icon">
+		</div>
+		<div>
+			<p>Limited time only: Congrats, you're automatically saving up to 50% of your Studysage subscription!</p>
+		</div>
+	</div>
+<div class="para-2">
+    <p>StudySage Pack subscription - $4/mo.</p>
+    <p class="small-para">(No worries! Cancel anytime.)</p>
+</div>
+
+
+<div class="two-container">
+       <form action="/submit_payment" method="post">
+        <div class="payment-container">
+            <div class="pay-card">
+                <div class="pay-with-card-cards">
+                    <div>
+                        <p>Pay with card</p>
+                    </div>
+                    <div>
+                        <!-- Image sources can be adjusted as needed -->
+                        <img src="image/visa.png" alt="Visa">
+                        <img src="image/skrill.png" alt="Skrill">
+                        <img src="image/payoneer.png" alt="Payoneer">
+                        <img src="image/mastercard.png" alt="Mastercard">
+                    </div>
+                </div>
+
+                <p class="all-fields-required">All fields are required</p>
+
+                <label for="cardName">Name on card</label>
+                <input type="text" id="cardName" name="cardName" required>
+
+                <label for="cardNumber">Card number</label>
+                <input type="text" id="cardNumber" name="cardNumber" required>
+
+                <div class="exp-cvv">
+                    <div>
+                        <label for="expDate">Exp. date</label>
+                        <input type="text" id="expDate" name="expDate" class="mm-yy" required>
+                        <div>
+                            <p class="mm-yy">MM/YY</p>
+                        </div>
+                    </div> 
+
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" required>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="India">India</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="China">China</option>
+                    <option value="Japan">Japan</option>
+                    <option value="United States">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-button">Pay</button>
+        </div>
+    </form>
+      <div class="join-now-container">
+        {{!-- <div>
+            <button onclick="redirectToDestination()"><img src="image\simple-lock-icon-line-art-style-closed-padlock-keyhole-security-secure-code-private-safe-access-password-protection-218611022.jpg">  Join now</button><br>
+            <p>Your payment method will be charged $5 + applicable tax</p>
+        </div> --}}
+
+        <div class="billing-details">
+            <div class="billing-details-para-0">
+            <p class="para-0">Billing Details:</p>
+            <p class="pa-1">By clicking Join now you are agreeing to our Chegg Study Pack Terms, Chegg Terms of Use, Privacy Policy and for Chegg to charge your payment method for $9.99 (+ tax if applicable) for your monthly subscription to Chegg Study Pack. Chegg will automatically charge your payment method monthly until you elect to cancel by selecting cancel membership in My Account.</p>
+        </div>
+        </div>
+
+        <div>
+            <div class="device-policy">
+                <p class="p-0">Device policy:</p>
+                <p class="p-1">You can access and use Chegg Study on up to two (2) different devices that must be registered at My Account > My Devices.</p>
+            </div>
+        </div>
+
+
+       <div class="ins">
+            <div class="instructions">
+                <div>
+                <img src="image\3099076_35183.jpg">
+            </div>
+            <div>
+                <p>Your subscription includes:</p>
+            </div>
+            </div>
+       
+        <div class="feature-1">
+            <div>
+                <img src="image/set_of_check_marks_multiple_colours.jpg">
+            </div>
+            <div>
+                <p><span>Unlimited Access to Expert Q&A Archive</span> Access to 90 million fully<br> explained homework questions</p>
+            </div>
+        </div>
+
+        <div class="feature-2">
+            <div>
+                <img src="image/set_of_check_marks_multiple_colours.jpg">
+            </div>
+            <div>
+                <p><span>Post New Questions</span> 20 new questions per month with 24/7 expert<br> answers in as little as 30 mins*</p>
+            </div>
+        </div>
+
+        <div class="feature-3">
+            <div>
+                <img src="image/set_of_check_marks_multiple_colours.jpg">
+            </div>
+            <div>
+                <p>And more!</p>
+            </div>
+            </div>
+    </div>
+    </div>
+    </div>
+
+    <div>
+        <p class="footer-msg">© 2003-2023 Chegg Inc. All rights reserved.</p>
+    </div>
+    <hr class="horizontal-line">
+  
+    <div class="fti">
+      <button><img class="fb" src="image\facebook.jpg" width="50" height="40" alt="search_img"></button>
+      <button><img class="twit" src="image\twitter.jpg" width="40" height="35" alt="search_img"></button>
+      <button><img class="inst" src="image\instagram.jpg" width="37" height="38" alt="search_img"></button>
+    </div>
+  
+    <div class="GA">
+      <button><img class="G" src="image\Google-Play-icon.jpg" width="135" height="44" alt="search_img"></button>
+      <button><img class="A" src="image\App-Store-Icon.jpg" width="137" height="45" alt="search_img"></button>
+     
+    </div>
+    <div class="cydgphi">
+      <button>Cookie Notice</button>
+      <button>Your Privacy Choices</button>
+      <button>Do not sell my info</button>
+      <button>General Policies</button>
+      <button>Privacy Policy</button>
+     
+    </div>
+
+{{!-- <script>
+	function redirectToDestination() {
+    window.location.href = '#';
+}
+  </script> --}}
+</body>
+</html>
