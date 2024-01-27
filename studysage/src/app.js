@@ -18,6 +18,13 @@ const nodemailer = require("nodemailer");
 const useragent = require('express-useragent');
 const { format } = require('date-fns');
 const { v4: uuidv4 } = require('uuid');
+// //getting the ai data
+// const React = require('react');
+// const ReactDOMServer = require('react-dom/server');
+// const AIChat = require('./ai_bot/src/AIChat');
+// const PdfConversation = require('./ai_bot/src/PdfConversation');
+// import Logo from './ai_bot/src/logo.svg';
+ 
 
 //ALL the DATABASE
 require("./db/conn");
@@ -28,9 +35,9 @@ const deviceinfo = require("./models/deviceinfo.js");
 const Payment = require("./models/payment.js");
 
 
-
+{/* <Logo /> */}
 //for universar post
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3070;
 
 // Multer setup
 const storage = multer.memoryStorage(); // Use memory storage for simplicity
@@ -75,7 +82,7 @@ const sendverifymail = async(name,email,user_id)=>{
       from : 'sdfdsfsda7@gmail.com',
       to: email,
       subject: 'For verification StudySage acount',
-      html:'<p> Hii, '+name+', click here to verify <a href="http://localhost:3000/email_verified?id='+user_id+'"> Verify</a> your mail.</p>'
+      html:'<p> Hii, '+name+', click here to verify <a href="http://localhost:3070/email_verified?id='+user_id+'"> Verify</a> your mail.</p>'
      }
      transporter.sendMail(mailOptions,function(error,info){
       if(error){
@@ -92,8 +99,15 @@ const sendverifymail = async(name,email,user_id)=>{
 
 
 
+// app.get('/aichat', (req, res) => {
+//   const html = ReactDOMServer.renderToString(React.createElement(AIChat));
+//   res.send(html);
+// });
 
-
+// app.get('/pdf', (req, res) => {
+//   const html = ReactDOMServer.renderToString(React.createElement(PdfConversation));
+//   res.send(html);
+// });
 
 // getting Routes from templates/views
 // app.get("/", (req, res) => {
@@ -321,9 +335,30 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// Authorization middleware
+// Temporary modification to bypass authorization check
+const cors = require('cors');
+app.use(cors({
+  origin: 'http://localhost:3000', // Allow your React app's origin
+  credentials: true // Enable credentials
+}));
 
 
+function checkAuthorized(req, res, next) {
+  return next(); // Bypass authorization check
+}
 
+
+// API call for user id
+app.get('/api/getStudentId', checkAuthenticated, checkAuthorized, async (req, res) => {
+  console.log("GET /api/getStudentId called");
+
+  const currentUser = await req.user; // Assuming req.user is a Promise
+  const student_id = currentUser._id;
+
+  console.log("User ID:", student_id);
+  res.json({ student_id });
+});
 
 
 
@@ -465,10 +500,7 @@ app.use('/expert',expertRoute);
 
 
 
-
-
-
-
+ 
 
 
 

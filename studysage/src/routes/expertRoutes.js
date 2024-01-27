@@ -7,7 +7,7 @@ const expert_route = express();
 
 const session = require("express-session");
 const configEX = require("../config/configex");
-const storage = multer.memoryStorage(); // Use memory storage for simplicity
+const storage = multer.memoryStorage(); 
 const upload = multer({ storage: storage });
 
 // Correct Session configuration
@@ -16,8 +16,8 @@ expert_route.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        httpOnly: true, // Recommended for security
-        maxAge: 24 * 60 * 60 * 1000 // 24 hours (optional)
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000 
     }
 }));
 

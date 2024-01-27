@@ -1,0 +1,98 @@
+/* nav.css */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar {
+    background-color: white;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Optional: Add a subtle border for separation */
+    position: relative; /* Ensure the pseudo-element is positioned relative to the navbar */
+  }
+  
+  .navbar h3 {
+    color: black;
+    margin: 0;
+    padding: 15px;
+    display: inline-block;
+    font-size: 25px;
+  }
+  
+  .nav-link {
+    float: right;
+    display: block;
+    color: black;
+    background-color: rgb(191, 231, 159);
+    text-align: center;
+    padding: 12px 12px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 7px;
+    position: relative;
+    z-index: 1; /* Ensure the links stay on top of the pseudo-element */
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+
+  }
+  .nav-link2 {
+    float: right;
+    display: block;
+    color: black;
+    background-color: rgb(93, 204, 204);
+    text-align: center;
+    padding: 12px 12px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 7px;
+    position: relative;
+    z-index: 1; /* Ensure the links stay on top of the pseudo-element */
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+
+  }
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1; /* Place the pseudo-element behind the link */
+    background: rgba(255, 255, 255, 0.7); /* Adjust opacity as needed */
+    border-radius: inherit;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Add a box shadow for the glass morphism effect */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease;
+  }
+  
+  .nav-link:hover::before {
+    opacity: 1; /* Make the pseudo-element visible on hover */
+  }
+  
+
+  .nav-link2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1; /* Place the pseudo-element behind the link */
+    background: rgba(255, 255, 255, 0.7); /* Adjust opacity as needed */
+    border-radius: inherit;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Add a box shadow for the glass morphism effect */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease;
+  }
+  
+  .nav-link2:hover::before {
+    opacity: 1; /* Make the pseudo-element visible on hover */
+  }
+
+
+  .container {
+    margin-top: 20px;
+    padding: 20px;
+  }
