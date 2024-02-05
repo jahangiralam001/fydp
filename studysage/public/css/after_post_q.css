@@ -8,44 +8,256 @@
   body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4; /* Light grey background */
+  }.header{
+    height: 70px;
+    width: 100rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 1px 2px  rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
   }
-  /* Sidebar styles */
-.sidebar {
-    background-color: #7d7aa2;
-    color: #fff;
-    width: 250px; /* Adjust the width as needed */
-    height: 100vh;
-    position: fixed;
-    overflow-y: auto; /* Allow scrolling if content is long */
-    padding: 20px;
-    font-size: 16px; /* Adjust font size as needed */
-  }
-  
-  .sidebar .all-btn button,
-  .sidebar .subscribe button {
+  .left-section{
     width: 100%;
-    padding: 15px 20px; /* Added padding to the right for better alignment */
+    max-width: 300px;
+    margin-left: 10px;
+    
+  }
+  .Home_button{
+    font-family: Arial;
+    font-size: 27px;
+    height: 42px;
+    width: 120px;
+    margin-left: 340px;
+    margin-top: 13px;
+    border-radius: 4px;
     border: none;
-    background: none;
-    color: white;
-    text-align: left;
+    background-color: white;
     cursor: pointer;
-    border-bottom: 1px solid #666; /* Separator line */
-    display: flex; /* Use flexbox for horizontal alignment */
-    align-items: center; /* Align items vertically in the center */
-    gap: 15px; /* Space between icon and text */
+  }
+  .Home_button:hover{
+    opacity: 0.3;
+  }
+  .middle-section{
+    flex: 0.70;
+    margin-left: 10px;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .search-bar{
+    font-size: 16px;
+    margin-top: 0px;
+    flex: 0.85;
+    height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192,192,192);
+    border-radius: 2px;
+    padding-left: 40px;
+    box-shadow: inset 1px 2px 5px rgba(0,0,0,0.05);
+  }
+  .search-button{
+    height: 43px;
+    width: 50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192,192,192);
+    margin-right: 40px;
+    margin-left: -1.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-button:hover{
+    opacity: 0.3;
+  }
+  .search_icon{
+    margin-left: 3px;
+    margin-top: -0px;
+  }
+  .profile-logout-btn {
+    display: flex;
+    align-items: center;
+    }
+    
+    .profile-logout-btn a {
+    text-decoration: none;
+    }
+    
+    .profile-logout-btn button {
+    margin-left: 10px;
+    height: 42px;
+    padding: 0 15px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    font-family: Arial;
+    font-size: 16px;
+    }
+    
+    .profile-logout-btn button:hover {
+    opacity: 0.3;
+    }
+  
+  .sidebar{
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    top: 0px;
+    width: 220px;
+    background-color: rgb(200, 194, 241);
+  }
+  .all-btn{
+    margin-top: 5rem;
+  }
+  .sidebar
+  button{
+    margin: -0.5rem;
+    height: 35px;
+    width: 200px;
+    border: none;
+    font-size: 17.5px;
+    padding-top: 2rem;
+    cursor: pointer;
+    display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 39px;
+    background-color: rgb(200, 194, 241);
+  }
+  .sidebar
+  button:hover{
+    opacity: 0.3;
+  }
+  .horizontal-line{
+    width: 100%;
+  }
+  /*.life-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; /* Adjust the gap as needed 
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #fff; /* Adjust the background color as needed 
+      font-size: 16px;
   }
   
-  .sidebar .all-btn button:hover,
-  .sidebar .subscribe button:hover {
-    background-color: #6c6791; /* Darker shade for hover effect */
+  .life-button img {
+      width: 37px; /* Adjust the width of the image as needed 
+      height: 37px;/* Adjust the height of the image as needed 
+  }*/
+  .home{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; /* Adjust the gap as needed */
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #fff; /* Adjust the background color as needed */
+      font-size: 16px;
+  }
+  .home img {
+      width: 21px; /* Adjust the width of the image as needed */
+      height: 21px;/* Adjust the height of the image as needed */
+  }
+  .study-tools{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; /* Adjust the gap as needed */
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #fff; /* Adjust the background color as needed */
+      font-size: 16px;
+  }
+  .study-tools img {
+      width: 24px; /* Adjust the width of the image as needed */
+      height: 24px;/* Adjust the height of the image as needed */
+  }
+  .post-q-btn-img{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; /* Adjust the gap as needed */
+      padding: 10px;
+    padding-left: 2.1rem;
+      border: none;
+      cursor: pointer;
+      background-color: #fff; /* Adjust the background color as needed */
+      font-size: 16px;
+  }
+  .post-q-btn-img img {
+      width: 21px; /* Adjust the width of the image as needed */
+      height: 21px;/* Adjust the height of the image as needed */
+  }
+  .ai-btn-img{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; /* Adjust the gap as needed */
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #fff; /* Adjust the background color as needed */
+      font-size: 16px;
+  }
+  .ai-btn-img img {
+      width: 30px; /* Adjust the width of the image as needed */
+      height: 30px;/* Adjust the height of the image as needed */
+  }
+  .my-c-btn-img{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; /* Adjust the gap as needed */
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #fff; /* Adjust the background color as needed */
+      font-size: 16px;
+  }
+  .my-c-btn-img img {
+      width: 22px; /* Adjust the width of the image as needed */
+      height: 22px;/* Adjust the height of the image as needed */
+  }
+  .my-books-btn-img{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; /* Adjust the gap as needed */
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #fff; /* Adjust the background color as needed */
+      font-size: 16px;
+  }
+  .my-books-btn-img img {
+      width: 27px; /* Adjust the width of the image as needed */
+      height: 27px;/* Adjust the height of the image as needed */
+  }
+  .subscribe{
+    height: 100px;
+    width: 100px;
+  }
+  .card{
+    background-color: #FFFAF0;
+    align-items: center;
+    bottom: 280px;
+    position: absolute;
+    padding-top: 20px;
+    left: 500px;
+    height: 250px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
   
-  .sidebar .all-btn button img,
-  .sidebar .subscribe button img {
-    width: 20px; /* Adjust icon size */
-    height: 20px; /* Make height equal to width for square aspect ratio */
-  }
   
   /* Further adjustments for smaller screens */
   @media (max-width: 768px) {
